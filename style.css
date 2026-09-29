@@ -41,11 +41,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Imagem de fundo preenchendo o site no Desktop */
+/* Imagem de fundo fixa preenchendo o site inteiro (Estável contra zoom no mobile) */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100svh; /* Impede o zoom indesejado ao rolar a página no celular */
   z-index: -1;
   opacity: 0.65;
   background-color: var(--bg-color);
@@ -458,7 +461,7 @@ footer a:hover { color: var(--brand); }
 @keyframes fall  { to { transform: translateY(110vh) rotate(360deg); } }
 
 /* ==========================================================================
-   13. RESPONSIVO (MOBILE CORRIGIDO PARA EVITAR ZOOM NA ROLAGEM)
+   13. RESPONSIVO
    ========================================================================== */
 @media (max-width: 940px) {
   .split, .about, .contact { grid-template-columns: 1fr; }
@@ -488,26 +491,22 @@ footer a:hover { color: var(--brand); }
   .topbar .hide-m { display: none; }
   .topbar .wrap { justify-content: center; }
 
-  /* Desativa a imagem fixa do body no celular para acabar com o glitch de zoom ao rolar */
+  /* Foco da imagem centralizado no celular para manter o visual original perfeito */
   body::before {
-    display: none;
+    background-position: 25% top;
   }
 
-  /* Aplica a imagem diretamente na seção hero, rolando suavemente junto com o site */
+  /* Ajuste de altura refinado para o texto ficar na altura dos braços/peito (fora do rosto) */
   .hero {
-    background-image: var(--bg-img);
-    background-position: 25% top;
-    background-size: cover;
-    background-repeat: no-repeat;
     align-items: flex-end;
-    padding-bottom: 50px;
-    min-height: 85vh;
+    padding-bottom: 45px;
+    min-height: 82vh;
   }
 
   .hero .wrap {
     text-align: center;
     margin-inline: auto;
-    margin-top: 180px;
+    margin-top: 140px;
   }
 
   .cta { justify-content: center; }
@@ -517,10 +516,10 @@ footer a:hover { color: var(--brand); }
 @media (max-width: 500px) {
   section { padding: 50px 0; }
   .hero {
-    padding-bottom: 40px;
+    padding-bottom: 35px;
   }
   .hero .wrap {
-    margin-top: 150px;
+    margin-top: 120px;
   }
   .why, .fgrid { grid-template-columns: 1fr; }
   .map iframe { height: 300px; }
