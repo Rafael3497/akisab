@@ -87,7 +87,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
 }
 
 /* ==========================================================================
-   3. BOTÕES MAIORES E DESTACADOS
+   3. BOTÕES
    ========================================================================== */
 .btn {
   position: relative;
@@ -243,7 +243,7 @@ nav a.active { color: var(--brand); }
 .burger svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   5. HERO
+   5. HERO (Com logo centralizada/organizada sem cobrir o técnico)
    ========================================================================== */
 .hero {
   position: relative;
@@ -262,15 +262,15 @@ nav a.active { color: var(--brand); }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.65) 55%, rgba(255, 255, 255, 0.2) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 55%, rgba(255, 255, 255, 0.35) 100%);
   z-index: 0;
 }
 
-.hero .wrap {
+.hero .wrap.hero-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 30px;
   position: relative;
   z-index: 1;
   width: 100%;
@@ -279,23 +279,21 @@ nav a.active { color: var(--brand); }
 }
 
 .hero-content {
-  max-width: 580px;
-  margin-left: 20px;
+  max-width: 520px;
   animation: up .9s .15s both;
 }
 
-.hero-big-logo {
-  flex: 1;
+.hero-center-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-right: 40px;
+  flex: 1;
   animation: up 1s 0.25s both;
 }
-.hero-big-logo img {
-  max-width: 260px;
+.hero-center-logo img {
+  max-width: 220px;
   width: 100%;
-  filter: drop-shadow(0 15px 30px rgba(26, 124, 242, 0.2));
+  filter: drop-shadow(0 12px 28px rgba(26, 124, 242, 0.2));
 }
 
 .hero h1 {
@@ -409,7 +407,7 @@ nav a.active { color: var(--brand); }
 .ico svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   7. DIFERENCIAIS (Atualizado conforme imagem 1)
+   7. DIFERENCIAIS
    ========================================================================== */
 #diferenciais {
   background: linear-gradient(180deg, rgba(230, 243, 255, 0.98), rgba(245, 250, 255, 1));
@@ -481,7 +479,7 @@ nav a.active { color: var(--brand); }
 .diff-card p { font-size: 0.9rem; margin: 0; color: var(--muted); }
 
 /* ==========================================================================
-   8. MARCAS (Atualizado com interatividade e botão azul)
+   8. MARCAS
    ========================================================================== */
 #marcas {
   background: linear-gradient(135deg, rgba(200, 225, 255, 0.95), rgba(225, 242, 255, 0.98));
@@ -557,7 +555,7 @@ nav a.active { color: var(--brand); }
 }
 
 /* ==========================================================================
-   9. EMPRESA (Atualizado conforme imagem 3)
+   9. EMPRESA
    ========================================================================== */
 #empresa {
   background: linear-gradient(180deg, rgba(235, 245, 255, 0.98), rgba(220, 238, 255, 1));
@@ -778,15 +776,15 @@ footer a:hover { color: var(--brand2); }
     padding: 40px 0;
   }
   .hero::before {
-    background: linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.7) 65%, rgba(255,255,255,0.4) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.75) 65%, rgba(255,255,255,0.5) 100%);
   }
-  .hero .wrap {
+  .hero .wrap.hero-wrap {
     flex-direction: column;
     text-align: center;
   }
   .hero-content { margin-left: 0; }
   .hero h1 { justify-content: center; }
-  .hero-big-logo { padding-right: 0; margin-bottom: 30px; }
+  .hero-center-logo { padding-right: 0; margin-bottom: 24px; }
   .hero-tags { justify-content: center; }
   .cta { justify-content: center; }
   .cta .btn { max-width: 100%; }
