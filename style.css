@@ -3,21 +3,22 @@
    ========================================================================== */
 :root {
   --ink: #0f2a44;
-  --muted: #5b6f84;
+  --muted: #486581;
   --brand: #1a7cf2;
   --brand2: #35c8e8;
-  --soft: #eef7ff;
-  --line: #dbe9f6;
+  --soft: #f0f7ff;
+  --line: #cce3f9;
   --wa: #22b45e;
   --r: 20px;
   --sh: 0 12px 34px rgba(26, 124, 242, .12);
-  --glass: rgba(255, 255, 255, .72);
-  --glass-strong: rgba(255, 255, 255, .86);
-  --glass-border: 1px solid rgba(255, 255, 255, .7);
+  
+  /* Tons de azul refinados para as caixas do site */
+  --card-bg-1: rgba(238, 247, 255, 0.92);
+  --card-bg-2: rgba(220, 239, 255, 0.94);
+  --card-bg-3: rgba(205, 231, 255, 0.92);
 
-  /* Caminhos das imagens */
+  /* Caminho da imagem de fundo */
   --bg-img: url("assents/fundo.png");
-  --bg-color: transparent;
 
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -41,7 +42,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Imagem de fundo fixa preenchendo o site inteiro (Estável contra zoom no mobile) */
+/* Imagem de fundo fixa no topo (Parallax / Capa Estática) */
 body::before {
   content: "";
   position: fixed;
@@ -50,8 +51,8 @@ body::before {
   width: 100vw;
   height: 100svh;
   z-index: -1;
-  opacity: 0.65;
-  background-color: var(--bg-color);
+  opacity: 0.7;
+  background-color: transparent;
   background-image: var(--bg-img);
   background-repeat: no-repeat;
   background-position: center;
@@ -84,10 +85,11 @@ p  { margin: 0 0 14px; color: var(--muted); }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--brand);
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(26, 124, 242, 0.1);
 }
 
 .hl {
@@ -146,23 +148,13 @@ p  { margin: 0 0 14px; color: var(--muted); }
 }
 
 /* ==========================================================================
-   4. TOPBAR + HEADER + NAV
+   4. HEADER + NAV
    ========================================================================== */
-.topbar {
-  background: linear-gradient(90deg, var(--brand), var(--brand2));
-  color: #fff;
-  font-size: .85rem;
-  position: relative;
-  z-index: 2;
-}
-.topbar .wrap { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; flex-wrap: wrap; }
-.topbar .hide-m { display: flex; gap: 18px; }
-
 header {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 50;
-  background: rgba(255, 255, 255, .94);
+  background: rgba(255, 255, 255, .95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -221,9 +213,7 @@ nav a:hover::after { width: 100%; }
 .hero h1, .hero p {
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 4px 20px rgba(255, 255, 255, 0.9);
 }
-.hero h1 .hl {
-  text-shadow: none;
-}
+.hero h1 .hl { text-shadow: none; }
 .hero p { 
   font-size: 1.08rem; 
   color: #1e3a5f;
@@ -242,6 +232,8 @@ nav a:hover::after { width: 100%; }
   grid-template-columns: repeat(4, 1fr);
   border-radius: var(--r);
   box-shadow: var(--sh);
+  background: var(--card-bg-1);
+  border: 1px solid var(--line);
 }
 .stat { padding: 24px 14px; text-align: center; border-right: 1px solid var(--line); }
 .stat:last-child { border: 0; }
@@ -257,6 +249,9 @@ nav a:hover::after { width: 100%; }
   margin-bottom: 38px;
   padding: 22px 26px;
   border-radius: var(--r);
+  background: var(--card-bg-1);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh);
 }
 
 .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
@@ -279,6 +274,8 @@ nav a:hover::after { width: 100%; }
   border-radius: 16px;
   padding: 18px;
   transition: transform .25s, box-shadow .25s;
+  background: var(--card-bg-2);
+  border: 1px solid var(--line);
 }
 .item:hover { transform: translateX(6px); box-shadow: var(--sh); }
 .item p { margin: 0; }
@@ -301,6 +298,9 @@ nav a:hover::after { width: 100%; }
   border-radius: var(--r);
   padding: 26px;
   transition: transform .25s, box-shadow .25s;
+  background: var(--card-bg-2);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh);
 }
 .card:hover { transform: translateY(-6px); box-shadow: var(--sh); }
 .card .ico { margin-bottom: 16px; }
@@ -312,14 +312,25 @@ nav a:hover::after { width: 100%; }
   border-radius: 999px;
   font-weight: 800;
   transition: transform .2s, background .2s, color .2s;
+  background: var(--card-bg-2);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(26, 124, 242, 0.06);
 }
 .brands span:hover { transform: translateY(-3px); background: var(--brand); color: #fff; }
 
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
 
 .mvv { display: grid; gap: 16px; }
-.mvv div { border-left: 4px solid var(--brand2); border-radius: 14px; padding: 18px 20px; }
-.mvv h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.mvv div { 
+  border-left: 4px solid var(--brand); 
+  border-radius: 14px; 
+  padding: 18px 20px; 
+  background: var(--card-bg-2);
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.mvv h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--brand); }
 .mvv p { margin: 0; }
 
 /* ==========================================================================
@@ -327,14 +338,22 @@ nav a:hover::after { width: 100%; }
    ========================================================================== */
 .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 
-form  { display: grid; gap: 14px; }
+form  { 
+  display: grid; 
+  gap: 14px; 
+  background: var(--card-bg-2);
+  padding: 30px;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh);
+}
 label { font-weight: 600; font-size: .9rem; display: grid; gap: 6px; }
 
 input, textarea {
   width: 100%;
   font: inherit;
   color: var(--ink);
-  background: #fff;
+  background: #ffffff;
   border: 1.5px solid var(--line);
   border-radius: 12px;
   padding: 14px;
@@ -348,11 +367,27 @@ input:focus, textarea:focus {
 textarea { min-height: 120px; resize: vertical; }
 
 .info { display: grid; gap: 14px; align-content: start; }
-.row  { display: flex; gap: 14px; align-items: flex-start; border-radius: 14px; padding: 16px; }
+.row  { 
+  display: flex; 
+  gap: 14px; 
+  align-items: flex-start; 
+  border-radius: 14px; 
+  padding: 16px; 
+  background: var(--card-bg-3);
+  border: 1px solid var(--line);
+}
 .row svg { width: 24px; height: 24px; color: var(--brand); flex: none; margin-top: 2px; }
 .row b { display: block; }
 
-.map { position: relative; margin-top: 26px; border-radius: var(--r); overflow: hidden; }
+.map { 
+  position: relative; 
+  margin-top: 26px; 
+  border-radius: var(--r); 
+  overflow: hidden; 
+  background: var(--card-bg-2);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh);
+}
 .map iframe { display: block; width: 100%; height: 340px; border: 0; }
 .map p { margin: 0; padding: 14px 18px; }
 .map .open {
@@ -366,50 +401,35 @@ textarea { min-height: 120px; resize: vertical; }
 }
 
 /* ==========================================================================
-   9. EFEITO VIDRO
+   9. EFEITO DE BLOCOS COM DIFERENTES TONS DE AZUL
    ========================================================================== */
-.head,
-.split > div,
-.about > div:first-child,
-form,
-.mvv div,
-.brands span,
-.map,
-.stats .grid,
-.item,
-.card,
-.row {
-  background: var(--glass);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: var(--glass-border);
+.split > div:first-child,
+.about > div:first-child {
+  background: var(--card-bg-2);
+  padding: 30px;
+  border-radius: var(--r);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh);
 }
 
-.item, .card, .row { background: var(--glass-strong); }
-
-.mvv div { border-left: 4px solid var(--brand2); }
-
-.split > div,
-.about > div:first-child,
-form { padding: 30px; border-radius: var(--r); }
-
 /* ==========================================================================
-   10. FOOTER
+   10. FOOTER COM TOM AZUL PROFUNDO
    ========================================================================== */
 footer {
   position: relative;
   z-index: 1;
-  background: rgba(238, 247, 255, .96);
+  background: linear-gradient(135deg, #112d4d, #1a426e);
+  color: #fff;
   border-top: 1px solid var(--line);
   padding: 52px 0 28px;
 }
-footer h4 { margin: 0 0 12px; }
-footer img { height: 84px; width: auto; margin-bottom: 10px; }
-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; color: var(--muted); }
-footer a:hover { color: var(--brand); }
+footer h4 { margin: 0 0 12px; color: #fff; }
+footer img { height: 84px; width: auto; margin-bottom: 10px; filter: brightness(0) invert(1); }
+footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; color: #d0e3ff; }
+footer a:hover { color: var(--brand2); }
 
 .fgrid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 32px; }
-.copy { border-top: 1px solid var(--line); margin-top: 34px; padding-top: 20px; font-size: .85rem; color: var(--muted); }
+.copy { border-top: 1px solid rgba(255,255,255,0.15); margin-top: 34px; padding-top: 20px; font-size: .85rem; color: #a1c4fd; }
 
 /* ==========================================================================
    11. WHATSAPP FLUTUANTE + NEVE
@@ -488,15 +508,11 @@ footer a:hover { color: var(--brand); }
   nav ul { flex-direction: column; gap: 0; }
   nav li a { display: block; padding: 15px 4px; border-bottom: 1px solid var(--line); }
 
-  .topbar .hide-m { display: none; }
-  .topbar .wrap { justify-content: center; }
-
   /* Foco da imagem centralizado no celular */
   body::before {
     background-position: 25% top;
   }
 
-  /* Texto deslocado bem mais para baixo para não cobrir o técnico */
   .hero {
     align-items: flex-end;
     padding-bottom: 30px;
@@ -506,7 +522,7 @@ footer a:hover { color: var(--brand); }
   .hero .wrap {
     text-align: center;
     margin-inline: auto;
-    margin-top: 300px; /* Empurra o texto ainda mais para baixo */
+    margin-top: 300px;
   }
 
   .cta { justify-content: center; }
@@ -519,7 +535,7 @@ footer a:hover { color: var(--brand); }
     padding-bottom: 25px;
   }
   .hero .wrap {
-    margin-top: 260px; /* Ajuste proporcional para telas menores */
+    margin-top: 260px;
   }
   .why, .fgrid { grid-template-columns: 1fr; }
   .map iframe { height: 300px; }
