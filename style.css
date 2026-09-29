@@ -72,7 +72,7 @@ a { color: inherit; text-decoration: none; }
 section { padding: 76px 0; position: relative; z-index: 1; }
 
 h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; letter-spacing: -.02em; text-wrap: balance; }
-h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 800; }
+h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; }
 h2 { font-size: clamp(1.6rem, 4.4vw, 2.4rem); font-weight: 800; }
 h3 { font-size: 1.15rem; font-weight: 800; }
 p  { margin: 0 0 14px; color: var(--muted); }
@@ -108,18 +108,18 @@ p  { margin: 0 0 14px; color: var(--muted); }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 52px;
-  padding: 0 26px;
+  min-height: 48px;
+  padding: 0 22px;
   border-radius: 999px;
   font-weight: 800;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.95rem;
   border: 2px solid transparent;
   cursor: pointer;
   transition: transform .2s, box-shadow .2s;
 }
 .btn:hover { transform: translateY(-3px); }
-.btn svg { width: 22px; height: 22px; flex: none; }
+.btn svg { width: 20px; height: 20px; flex: none; }
 
 .btn-wa {
   background: linear-gradient(135deg, #2bc76c, var(--wa));
@@ -202,27 +202,27 @@ nav a.active { color: var(--brand); }
 .burger svg { width: 24px; height: 24px; }
 
 /* ==========================================================================
-   5. HERO (Informações alinhadas rigorosamente à esquerda com fundo2.png)
+   5. HERO (Imagem inteira visível, ajustada para caber sem cortar)
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: min(85vh, 700px);
+  min-height: 480px;
   display: flex;
   align-items: center;
-  padding: 60px 0;
+  padding: 50px 0;
+  background-color: #f4f8fc;
   background-image: var(--bg-img);
   background-repeat: no-repeat;
-  background-position: right center; /* Alinha a imagem mostrando o técnico/geladeira à direita */
-  background-size: cover;
-  background-attachment: fixed;
+  background-position: right center;
+  background-size: contain; /* Faz a imagem caber inteira no espaço sem dar zoom exagerado */
 }
 
-/* Camada de suavização no desktop para destacar o texto à esquerda */
+/* Suavizador leve para o texto destacar perfeitamente sobre a imagem */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0.2) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 55%, rgba(255, 255, 255, 0.3) 100%);
   z-index: 0;
 }
 
@@ -235,23 +235,23 @@ nav a.active { color: var(--brand); }
 }
 
 .hero-content {
-  max-width: 580px;
+  max-width: 540px;
   animation: up .9s .15s both;
 }
 
 .hero h1 {
   color: var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .hero p { 
-  font-size: 1.1rem; 
+  font-size: 1.02rem; 
   color: var(--muted);
   font-weight: 500;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-.cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ==========================================================================
    6. SEÇÕES COM TONS DE AZUL MODERNOS E ALTERNADOS
@@ -568,27 +568,27 @@ footer a:hover { color: var(--brand2); }
   nav li a { display: block; padding: 15px 4px; border-bottom: 1px solid #cce3f9; }
 
   .hero {
-    background-position: 70% top;
-    background-attachment: scroll;
-    align-items: center;
+    background-position: center bottom;
+    background-size: cover;
+    min-height: 420px;
     padding: 40px 0;
-    min-height: 82vh;
   }
 
   .hero::before {
-    background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.6) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 70%, rgba(255,255,255,0.8) 100%);
   }
 
   .hero-content {
-    text-align: left;
-    margin-inline: 0;
+    text-align: center;
+    margin-inline: auto;
   }
 
-  .cta { justify-content: flex-start; }
+  .cta { justify-content: center; }
+  .cta .btn { width: 100%; }
 }
 
 @media (max-width: 500px) {
-  section { padding: 50px 0; }
+  section { padding: 40px 0; }
   .why, .fgrid { grid-template-columns: 1fr; }
   .map iframe { height: 300px; }
   .split > div, .about > div:first-child, form { padding: 22px; }
