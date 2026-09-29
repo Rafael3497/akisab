@@ -60,7 +60,7 @@ a { color: inherit; text-decoration: none; }
 section { padding: 76px 0; position: relative; z-index: 1; }
 
 h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; letter-spacing: -.02em; text-wrap: balance; }
-h1 { font-size: clamp(1.8rem, 3.8vw, 2.7rem); font-weight: 800; }
+h1 { font-size: clamp(1.7rem, 3.8vw, 2.6rem); font-weight: 800; }
 h2 { font-size: clamp(1.6rem, 4.4vw, 2.4rem); font-weight: 800; }
 h3 { font-size: 1.15rem; font-weight: 800; }
 p  { margin: 0 0 14px; color: var(--muted); }
@@ -81,7 +81,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
   background: rgba(255, 255, 255, 0.95);
   padding: 6px 14px;
   border-radius: 999px;
-  margin-top: 10px;
+  margin-top: 6px;
   margin-bottom: 14px;
   box-shadow: 0 2px 6px rgba(26, 124, 242, 0.15);
 }
@@ -143,7 +143,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
 }
 
 /* ==========================================================================
-   4. HEADER + NAV (Com Instagram ao lado do menu e telefones na direita)
+   4. HEADER + NAV
    ========================================================================== */
 header {
   position: sticky;
@@ -164,18 +164,32 @@ header.sc { box-shadow: 0 8px 24px rgba(15, 42, 68, .1); }
   height: 84px; 
 }
 
-.logo img { height: 64px; width: auto; display: block; }
-
-/* Menu centralizado com o Instagram integrado ao lado */
-.nav-center-wrapper {
-  flex: 1;
+/* Lado esquerdo do topo: Logo + Número do WhatsApp escrito */
+.header-left-group {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
+  gap: 14px;
 }
 
-nav { display: flex; justify-content: center; }
+.logo img { height: 60px; width: auto; display: block; }
+
+.header-top-whatsapp {
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--ink);
+  background: #f0f7ff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #cce3f9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.header-top-whatsapp svg { width: 14px; height: 14px; color: var(--wa); flex: none; }
+
+/* Menu centralizado */
+nav { flex: 1; display: flex; justify-content: center; }
 nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-weight: 600; font-size: .9rem; }
 nav a { position: relative; color: var(--ink); }
 nav a::after {
@@ -191,7 +205,14 @@ nav a::after {
 nav a:hover::after, nav a.active::after { width: 100%; }
 nav a.active { color: var(--brand); }
 
-.social-icon-nav {
+/* Lado direito do topo: Instagram ao lado do menu + Telefone fixo */
+.header-right-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icon-top {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -203,22 +224,15 @@ nav a.active { color: var(--brand); }
   background: var(--ig-grad);
   flex: none;
 }
-.social-icon-nav:hover { transform: translateY(-2px); opacity: .9; }
-.social-icon-nav svg { width: 18px; height: 18px; }
+.social-icon-top:hover { transform: translateY(-2px); opacity: .9; }
+.social-icon-top svg { width: 18px; height: 18px; }
 
-/* Direita: Telefones (WhatsApp e Fixo) */
-.header-right {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.header-phone-item {
+.header-phone-fixed {
   font-weight: 700;
   font-size: .82rem;
   color: var(--ink);
   background: #f0f7ff;
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid #cce3f9;
   display: flex;
@@ -226,7 +240,7 @@ nav a.active { color: var(--brand); }
   gap: 5px;
   white-space: nowrap;
 }
-.header-phone-item svg { width: 13px; height: 13px; color: var(--brand); flex: none; }
+.header-phone-fixed svg { width: 13px; height: 13px; color: var(--brand); flex: none; }
 
 .burger {
   display: none;
@@ -243,7 +257,7 @@ nav a.active { color: var(--brand); }
 .burger svg { width: 24px; height: 24px; }
 
 /* ==========================================================================
-   5. HERO (Com Logo ao lado da palavra Geladeira)
+   5. HERO
    ========================================================================== */
 .hero {
   position: relative;
@@ -275,25 +289,25 @@ nav a.active { color: var(--brand); }
 }
 
 .hero-content {
-  max-width: 580px;
+  max-width: 600px;
   margin-left: 20px;
   animation: up .9s .15s both;
 }
 
 .hero h1 {
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
-  font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+  font-size: clamp(1.6rem, 3.6vw, 2.5rem);
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
 }
 
-/* Logo ao lado da palavra Geladeira (Aumentada) */
+/* Logo ao lado direito da palavra Geladeira */
 .hero-title-logo {
-  height: 48px;
+  height: 44px;
   width: auto;
   display: inline-block;
   vertical-align: middle;
@@ -612,12 +626,12 @@ footer a:hover { color: var(--brand2); }
    11. RESPONSIVO
    ========================================================================== */
 @media (min-width: 1041px) {
-  .nav-center-wrapper { display: flex !important; }
+  nav { display: flex !important; }
   .burger { display: none !important; }
 }
 
 @media (max-width: 1040px) {
-  .nav-center-wrapper {
+  nav {
     position: absolute;
     left: 0;
     right: 0;
@@ -625,16 +639,15 @@ footer a:hover { color: var(--brand2); }
     background: #fff;
     border-bottom: 1px solid #cce3f9;
     display: none;
-    flex-direction: column;
     padding: 10px 20px 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
   }
-  .nav-center-wrapper.open { display: flex; }
-  nav ul { flex-direction: column; gap: 0; width: 100%; }
+  nav.open { display: block; }
+  nav ul { flex-direction: column; gap: 0; }
   nav li a { display: block; padding: 14px 4px; border-bottom: 1px solid #e1edfc; }
-  .social-icon-nav { align-self: flex-start; margin-top: 10px; }
   .burger { display: flex; }
-  .header-right { display: none; }
+  .header-top-whatsapp { display: none; }
+  .header-phone-fixed { display: none; }
 }
 
 @media (max-width: 940px) {
