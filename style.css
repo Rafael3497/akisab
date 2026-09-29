@@ -42,7 +42,7 @@ nav a:hover::after{width:100%}
 .burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
 .burger svg{width:24px;height:24px}
 /* hero: imagem de fundo aparece limpa, conteúdo em card */
-.hero{min-height:min(88vh,760px);display:flex;align-items:flex-end;padding:40px 0 64px}
+.hero{min-height:min(88vh,750px);display:flex;align-items:flex-end;padding:40px 0 64px}
 .hero-card{background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border:1px solid #fff;border-radius:28px;padding:34px;box-shadow:var(--sh);max-width:640px;animation:up .9s .15s both}
 .hero-card p{font-size:1.08rem}
 .hl{background:linear-gradient(120deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -252,7 +252,7 @@ footer a:hover{color:var(--brand)}
 @keyframes shine{to{left:130%}}
 @keyframes ring{to{transform:scale(1.6);opacity:0}}
 @keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
-@media(max-width:960px){
+@media(max-width:940px){
 .split,.about,.contact{grid-template-columns:1fr}
 .why,.fgrid{grid-template-columns:repeat(2,1fr)}
 .stats .grid{grid-template-columns:repeat(2,1fr)}
@@ -261,18 +261,18 @@ footer a:hover{color:var(--brand)}
 }
 @media(max-width:820px){
 .burger{display:grid;place-items:center}
-nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);display:none;padding:8px 20px 20px}
+nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);display:none;padding:3px 17px 20px}
 nav.open{display:block}
 nav ul{flex-direction:column;gap:0}
 nav li a{display:block;padding:15px 4px;border-bottom:1px solid var(--line)}
 .topbar .hide-m{display:none}
 .topbar .wrap{justify-content:center}
 }
-@media(max-width:640px){
-section{padding:52px 0}
-.hero{min-height:82vh;padding:24px 0 40px}
+@media(max-width:600px){
+section{padding:50px 0}
+.hero{min-height:102vh;padding:24px 0 40px}
 .hero-card{padding:24px;border-radius:22px}
-body::before{background-position:40% top}
+body::before{background-position:50% top}
 .cta .btn{width:100%}
 .why,.fgrid{grid-template-columns:1fr}
 .map iframe{height:300px}
