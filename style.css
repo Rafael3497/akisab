@@ -15,8 +15,9 @@
   --glass-strong: rgba(255, 255, 255, .86);
   --glass-border: 1px solid rgba(255, 255, 255, .7);
 
-  /* Caminho da imagem de fundo */
+  /* Caminhos das imagens */
   --bg-img: url("assents/fundo.png");
+  --bg-color: transparent;
 
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -33,24 +34,25 @@ html {
 
 body {
   margin: 0;
-  background: var(--soft); /* Fundo base suave para combinar com o tema */
+  background: #ffffff;
   color: var(--ink);
   font: 400 16px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
 }
 
-/* Imagem de fundo fixa para Desktop (Efeito Parallax/Vidro) */
+/* Imagem de fundo preenchendo 100% do site */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: .45; /* Opacidade ajustada para leitura perfeita no desktop */
+  opacity: 0.65; /* Equilíbrio perfeito entre ver a imagem de fundo e ler o texto */
+  background-color: var(--bg-color);
   background-image: var(--bg-img);
   background-repeat: no-repeat;
-  background-position: 45% center;
-  background-size: cover;
+  background-position: center; /* Padrão desktop */
+  background-size: cover; /* Preenche 100% da tela */
 }
 
 img, svg, iframe { max-width: 100%; }
@@ -79,7 +81,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--brand);
-  background: rgba(26, 124, 242, 0.1);
+  background: rgba(255, 255, 255, 0.7); /* Fundo sutil apenas na tag eyebrow */
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 14px;
@@ -195,30 +197,37 @@ nav a:hover::after { width: 100%; }
 .burger svg { width: 24px; height: 24px; }
 
 /* ==========================================================================
-   5. HERO (DESKTOP)
+   5. HERO
    ========================================================================== */
 .hero {
   min-height: min(88vh, 750px);
   display: flex;
-  align-items: center;
+  align-items: center; /* Centraliza no desktop */
   padding: 40px 0 64px;
 }
 
-/* Card moderno sobre a imagem no Desktop */
+/* Texto direto na imagem, SEM CAIXA! 100% transparente */
 .hero .wrap {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 28px;
-  padding: 44px;
-  box-shadow: var(--sh);
   max-width: 640px;
-  margin-left: 0;
   animation: up .9s .15s both;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  border: none;
 }
 
-.hero p { font-size: 1.08rem; }
+/* Sombra muito sutil apenas no texto, para não se perder na imagem de fundo */
+.hero h1, .hero p {
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 4px 20px rgba(255, 255, 255, 0.9);
+}
+.hero h1 .hl {
+  text-shadow: none; /* Gradiente fica sem sombra para não distorcer */
+}
+.hero p { 
+  font-size: 1.08rem; 
+  color: #1e3a5f; /* Escurecido levemente para contrastar com a sombra branca */
+  font-weight: 600;
+}
 
 .cta  { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
 .tels { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 18px; font-weight: 800; color: var(--brand); }
@@ -451,7 +460,7 @@ footer a:hover { color: var(--brand); }
 @keyframes fall  { to { transform: translateY(110vh) rotate(360deg); } }
 
 /* ==========================================================================
-   13. RESPONSIVO (MOBILE: CORREÇÃO DA IMAGEM E DO TEXTO)
+   13. RESPONSIVO
    ========================================================================== */
 @media (max-width: 940px) {
   .split, .about, .contact { grid-template-columns: 1fr; }
@@ -481,56 +490,27 @@ footer a:hover { color: var(--brand); }
   .topbar .hide-m { display: none; }
   .topbar .wrap { justify-content: center; }
 
-  /* MÁGICA DO MOBILE: Removemos a imagem do fundo geral para não cortar a cabeça */
+  /* O SEGREDO DO MOBILE: Puxar a imagem para a esquerda para focar no técnico e não cortar ele! */
   body::before {
-    display: none; 
+    background-position: 25% top;
   }
 
-  /* Colocamos a imagem DIRETAMENTE na seção Hero. 
-     Isso garante que ela comece exatamente abaixo do menu, sem cortes no topo. */
   .hero {
-    background-image: var(--bg-img);
-    background-size: 100% auto; /* Força mostrar 100% da imagem na largura */
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-color: var(--soft);
-    min-height: auto;
-    display: block; /* Desliga o flexbox para fluir o texto perfeitamente */
-    padding: 0; /* Cola a imagem no header */
-    position: relative;
+    align-items: flex-start; /* Joga o texto mais pro topo */
+    padding-top: 10vh; /* Dá um respiro da margem de cima */
   }
 
-  /* Gradiente invisível que garante que a base da imagem se misture suavemente com a cor do site */
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(238, 247, 255, 0) 30vw, var(--soft) 60vw);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  /* O pulo do gato: O card sobe e sobrepõe a base da imagem.
-     Isso esconde o corte duro, acaba com o buraco branco e cria um design de App Premium. */
   .hero .wrap {
-    margin-top: 48vw; /* Empurra o card exatamente para a base da imagem */
-    margin-bottom: 40px;
-    background: #ffffff; /* Fundo branco sólido para leitura limpa */
-    border-radius: 24px;
-    padding: 32px 24px;
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.04), 0 15px 40px rgba(26, 124, 242, 0.1); /* Sombra elegante */
-    position: relative;
-    z-index: 2;
-    text-align: center; /* Centraliza tudo no mobile para ficar mais bonito */
+    text-align: center;
+    margin-inline: auto;
   }
 
-  .cta { justify-content: center; margin-top: 26px; }
+  .cta { justify-content: center; }
   .cta .btn { width: 100%; }
 }
 
 @media (max-width: 500px) {
   section { padding: 50px 0; }
-  
   .why, .fgrid { grid-template-columns: 1fr; }
   .map iframe { height: 300px; }
   .split > div, .about > div:first-child, form { padding: 22px; }
