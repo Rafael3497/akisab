@@ -15,10 +15,8 @@
   --glass-strong: rgba(255, 255, 255, .86);
   --glass-border: 1px solid rgba(255, 255, 255, .7);
 
-  /* Caminhos das imagens */
+  /* Caminho da imagem de fundo */
   --bg-img: url("assents/fundo.png");
-  /* Cor neutra/transparente para evitar o bloco duro no mobile */
-  --bg-color: transparent; 
 
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -35,29 +33,24 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff; /* Fundo base branco e limpo */
+  background: var(--soft); /* Fundo base suave para combinar com o tema */
   color: var(--ink);
   font: 400 16px/1.6 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
 }
 
-/* Imagem de fundo fixa com Efeito Profissional de Transição */
+/* Imagem de fundo fixa para Desktop (Efeito Parallax/Vidro) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: 0.85; /* Mais visível para destacar a imagem */
-  background-color: var(--bg-color);
+  opacity: .45; /* Opacidade ajustada para leitura perfeita no desktop */
   background-image: var(--bg-img);
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: 45% center;
   background-size: cover;
-  
-  /* MÁGICA: Desvanece a base da imagem para transparente, unindo-se ao fundo branco */
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
 }
 
 img, svg, iframe { max-width: 100%; }
@@ -86,7 +79,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--brand);
-  background: var(--soft);
+  background: rgba(26, 124, 242, 0.1);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 14px;
@@ -202,27 +195,26 @@ nav a:hover::after { width: 100%; }
 .burger svg { width: 24px; height: 24px; }
 
 /* ==========================================================================
-   5. HERO
+   5. HERO (DESKTOP)
    ========================================================================== */
 .hero {
   min-height: min(88vh, 750px);
   display: flex;
-  align-items: center; /* Centraliza no desktop */
+  align-items: center;
   padding: 40px 0 64px;
 }
 
-/* Card moderno de vidro fosco (Glassmorphism) para destacar o texto sobre a imagem */
+/* Card moderno sobre a imagem no Desktop */
 .hero .wrap {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 28px;
-  padding: 42px;
+  padding: 44px;
   box-shadow: var(--sh);
-  max-width: 680px;
+  max-width: 640px;
   margin-left: 0;
-  margin-right: auto; /* Mantém alinhado à esquerda na grid principal */
   animation: up .9s .15s both;
 }
 
@@ -459,7 +451,7 @@ footer a:hover { color: var(--brand); }
 @keyframes fall  { to { transform: translateY(110vh) rotate(360deg); } }
 
 /* ==========================================================================
-   13. RESPONSIVO
+   13. RESPONSIVO (MOBILE: CORREÇÃO DA IMAGEM E DO TEXTO)
    ========================================================================== */
 @media (max-width: 940px) {
   .split, .about, .contact { grid-template-columns: 1fr; }
@@ -489,36 +481,55 @@ footer a:hover { color: var(--brand); }
   .topbar .hide-m { display: none; }
   .topbar .wrap { justify-content: center; }
 
-  /* CONFIGURAÇÃO PROFISSIONAL DO FUNDO NO MOBILE */
+  /* MÁGICA DO MOBILE: Removemos a imagem do fundo geral para não cortar a cabeça */
   body::before {
-    background-size: 100% auto; /* Força a imagem inteira no topo */
-    background-position: top center;
-    /* O desvanecimento começa mais cedo no mobile porque a altura da imagem é menor */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 65%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 65%);
+    display: none; 
   }
+
+  /* Colocamos a imagem DIRETAMENTE na seção Hero. 
+     Isso garante que ela comece exatamente abaixo do menu, sem cortes no topo. */
+  .hero {
+    background-image: var(--bg-img);
+    background-size: 100% auto; /* Força mostrar 100% da imagem na largura */
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-color: var(--soft);
+    min-height: auto;
+    display: block; /* Desliga o flexbox para fluir o texto perfeitamente */
+    padding: 0; /* Cola a imagem no header */
+    position: relative;
+  }
+
+  /* Gradiente invisível que garante que a base da imagem se misture suavemente com a cor do site */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(238, 247, 255, 0) 30vw, var(--soft) 60vw);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* O pulo do gato: O card sobe e sobrepõe a base da imagem.
+     Isso esconde o corte duro, acaba com o buraco branco e cria um design de App Premium. */
+  .hero .wrap {
+    margin-top: 48vw; /* Empurra o card exatamente para a base da imagem */
+    margin-bottom: 40px;
+    background: #ffffff; /* Fundo branco sólido para leitura limpa */
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.04), 0 15px 40px rgba(26, 124, 242, 0.1); /* Sombra elegante */
+    position: relative;
+    z-index: 2;
+    text-align: center; /* Centraliza tudo no mobile para ficar mais bonito */
+  }
+
+  .cta { justify-content: center; margin-top: 26px; }
+  .cta .btn { width: 100%; }
 }
 
 @media (max-width: 500px) {
   section { padding: 50px 0; }
-  
-  /* Afasta o card de texto para baixo, focando na imagem na parte superior */
-  .hero { 
-    min-height: 100vh; 
-    min-height: 100svh; 
-    padding: 240px 0 40px; /* Empurra o conteúdo abaixo da cabeça do personagem */
-    display: flex;
-    align-items: center;
-  }
-  .hero .wrap { 
-    padding: 30px 24px; 
-    border-radius: 22px; 
-    margin-inline: auto; /* Centraliza no mobile */
-    text-align: center;
-  }
-  
-  .cta { justify-content: center; }
-  .cta .btn { width: 100%; }
   
   .why, .fgrid { grid-template-columns: 1fr; }
   .map iframe { height: 300px; }
