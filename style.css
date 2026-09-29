@@ -41,7 +41,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Imagem de fundo preenchendo 100% do site */
+/* Imagem de fundo preenchendo o site no Desktop */
 body::before {
   content: "";
   position: fixed;
@@ -81,7 +81,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--brand);
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 14px;
@@ -206,7 +206,6 @@ nav a:hover::after { width: 100%; }
   padding: 40px 0 64px;
 }
 
-/* Texto direto na imagem, SEM CAIXA! 100% transparente */
 .hero .wrap {
   max-width: 640px;
   animation: up .9s .15s both;
@@ -216,7 +215,6 @@ nav a:hover::after { width: 100%; }
   border: none;
 }
 
-/* Sombra leve no texto para destacar sobre a imagem de fundo */
 .hero h1, .hero p {
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 4px 20px rgba(255, 255, 255, 0.9);
 }
@@ -365,7 +363,7 @@ textarea { min-height: 120px; resize: vertical; }
 }
 
 /* ==========================================================================
-   9. EFEITO VIDRO (fundo aparece entre os blocos)
+   9. EFEITO VIDRO
    ========================================================================== */
 .head,
 .split > div,
@@ -460,7 +458,7 @@ footer a:hover { color: var(--brand); }
 @keyframes fall  { to { transform: translateY(110vh) rotate(360deg); } }
 
 /* ==========================================================================
-   13. RESPONSIVO
+   13. RESPONSIVO (MOBILE CORRIGIDO PARA EVITAR ZOOM NA ROLAGEM)
    ========================================================================== */
 @media (max-width: 940px) {
   .split, .about, .contact { grid-template-columns: 1fr; }
@@ -490,14 +488,18 @@ footer a:hover { color: var(--brand); }
   .topbar .hide-m { display: none; }
   .topbar .wrap { justify-content: center; }
 
-  /* Foco da imagem centralizado/à esquerda no celular */
+  /* Desativa a imagem fixa do body no celular para acabar com o glitch de zoom ao rolar */
   body::before {
-    background-position: 25% top;
+    display: none;
   }
 
-  /* AJUSTE DE POSIÇÃO DO TEXTO: Empurra o texto mais para baixo (saindo do rosto) */
+  /* Aplica a imagem diretamente na seção hero, rolando suavemente junto com o site */
   .hero {
-    align-items: flex-end; /* Posiciona o bloco mais abaixo na tela */
+    background-image: var(--bg-img);
+    background-position: 25% top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: flex-end;
     padding-bottom: 50px;
     min-height: 85vh;
   }
@@ -505,7 +507,7 @@ footer a:hover { color: var(--brand); }
   .hero .wrap {
     text-align: center;
     margin-inline: auto;
-    margin-top: 180px; /* Cria um respiro superior para afastar do rosto do técnico */
+    margin-top: 180px;
   }
 
   .cta { justify-content: center; }
