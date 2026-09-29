@@ -47,12 +47,12 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: 0.65; /* Equilíbrio perfeito entre ver a imagem de fundo e ler o texto */
+  opacity: 0.65;
   background-color: var(--bg-color);
   background-image: var(--bg-img);
   background-repeat: no-repeat;
-  background-position: center; /* Padrão desktop */
-  background-size: cover; /* Preenche 100% da tela */
+  background-position: center;
+  background-size: cover;
 }
 
 img, svg, iframe { max-width: 100%; }
@@ -81,7 +81,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--brand);
-  background: rgba(255, 255, 255, 0.7); /* Fundo sutil apenas na tag eyebrow */
+  background: rgba(255, 255, 255, 0.7);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 14px;
@@ -202,7 +202,7 @@ nav a:hover::after { width: 100%; }
 .hero {
   min-height: min(88vh, 750px);
   display: flex;
-  align-items: center; /* Centraliza no desktop */
+  align-items: center;
   padding: 40px 0 64px;
 }
 
@@ -216,16 +216,16 @@ nav a:hover::after { width: 100%; }
   border: none;
 }
 
-/* Sombra muito sutil apenas no texto, para não se perder na imagem de fundo */
+/* Sombra leve no texto para destacar sobre a imagem de fundo */
 .hero h1, .hero p {
   text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 4px 20px rgba(255, 255, 255, 0.9);
 }
 .hero h1 .hl {
-  text-shadow: none; /* Gradiente fica sem sombra para não distorcer */
+  text-shadow: none;
 }
 .hero p { 
   font-size: 1.08rem; 
-  color: #1e3a5f; /* Escurecido levemente para contrastar com a sombra branca */
+  color: #1e3a5f;
   font-weight: 600;
 }
 
@@ -490,19 +490,22 @@ footer a:hover { color: var(--brand); }
   .topbar .hide-m { display: none; }
   .topbar .wrap { justify-content: center; }
 
-  /* O SEGREDO DO MOBILE: Puxar a imagem para a esquerda para focar no técnico e não cortar ele! */
+  /* Foco da imagem centralizado/à esquerda no celular */
   body::before {
     background-position: 25% top;
   }
 
+  /* AJUSTE DE POSIÇÃO DO TEXTO: Empurra o texto mais para baixo (saindo do rosto) */
   .hero {
-    align-items: flex-start; /* Joga o texto mais pro topo */
-    padding-top: 10vh; /* Dá um respiro da margem de cima */
+    align-items: flex-end; /* Posiciona o bloco mais abaixo na tela */
+    padding-bottom: 50px;
+    min-height: 85vh;
   }
 
   .hero .wrap {
     text-align: center;
     margin-inline: auto;
+    margin-top: 180px; /* Cria um respiro superior para afastar do rosto do técnico */
   }
 
   .cta { justify-content: center; }
@@ -511,6 +514,12 @@ footer a:hover { color: var(--brand); }
 
 @media (max-width: 500px) {
   section { padding: 50px 0; }
+  .hero {
+    padding-bottom: 40px;
+  }
+  .hero .wrap {
+    margin-top: 150px;
+  }
   .why, .fgrid { grid-template-columns: 1fr; }
   .map iframe { height: 300px; }
   .split > div, .about > div:first-child, form { padding: 22px; }
