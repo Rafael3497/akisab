@@ -100,20 +100,12 @@
   </script>
 
   <style>
-    /* --- FIX: IMAGEM DE FUNDO DO HERO COMPLETA NO MOBILE --- */
+    /* --- FIX: IMAGEM DE FUNDO DO HERO APARECENDO 100% COMPLETA NO MOBILE --- */
     @media (max-width: 768px) {
       #inicio.hero {
-        background-size: 100% auto !important; /* Força a imagem a aparecer 100% na largura (completa) */
-        background-position: top center !important; /* Fixa no topo */
-        background-repeat: no-repeat !important; /* Evita que a imagem se repita para baixo */
-        /* Empurra o conteúdo para baixo da imagem. Ajuste os '300px' caso a sua imagem original seja mais alta ou mais baixa */
-        padding-top: 300px !important; 
-      }
-      #inicio.hero .wrap {
-        background: rgba(255, 255, 255, 0.92); /* Fundo branco semi-transparente para garantir leitura do texto */
-        padding: 24px;
-        border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave para destacar o texto */
+        background-size: contain !important; /* Faz a imagem caber inteira sem cortar nada */
+        background-position: top center !important; /* Alinha a imagem no topo */
+        background-repeat: no-repeat !important; /* Impede que a imagem se multiplique */
       }
     }
   </style>
@@ -206,7 +198,6 @@
     <section aria-labelledby="titulo-principal" class="hero" id="inicio">
       <div class="wrap">
         <span class="eyebrow">Assistência técnica em Fortaleza e região</span>
-        <!-- BUG CORRIGIDO: Tag <h1> fechada corretamente -->
         <h1 id="titulo-principal">Geladeira com defeito? <span class="hl">A gente resolve.</span></h1>
         <div class="cta">
           <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%20gostaria%20de%20um%20or%C3%A7amento!" rel="noopener" target="_blank">
