@@ -10,8 +10,8 @@
   --r: 20px;
   --sh: 0 12px 34px rgba(26, 124, 242, .12);
 
-  /* Caminho da imagem de fundo */
-  --bg-img: url("assents/fundo.png");
+  /* Caminho atualizado para a imagem fundo2.png na raiz */
+  --bg-img: url("fundo2.png");
 
   box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px);
@@ -203,7 +203,7 @@ nav a.active { color: var(--brand); }
 .burger svg { width: 24px; height: 24px; }
 
 /* ==========================================================================
-   5. HERO (Imagem de fundo parada e restrita apenas a esta seção de topo)
+   5. HERO (Imagem fundo2.png parada e restrita apenas ao topo)
    ========================================================================== */
 .hero {
   position: relative;
@@ -215,10 +215,9 @@ nav a.active { color: var(--brand); }
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed; /* Mantém a imagem parada enquanto o hero estiver visível */
+  background-attachment: fixed;
 }
 
-/* Camada leve para legibilidade sobre a imagem do hero */
 .hero::before {
   content: "";
   position: absolute;
@@ -565,10 +564,9 @@ footer a:hover { color: var(--brand2); }
   nav ul { flex-direction: column; gap: 0; }
   nav li a { display: block; padding: 15px 4px; border-bottom: 1px solid #cce3f9; }
 
-  /* Foco da imagem centralizado no celular dentro do hero */
   .hero {
     background-position: 25% top;
-    background-attachment: scroll; /* Melhora performance em celulares */
+    background-attachment: scroll;
     align-items: flex-end;
     padding-bottom: 40px;
     min-height: 82vh;
