@@ -153,20 +153,20 @@
   <!-- Header -->
   <header id="hd">
     <div class="wrap nav">
-      <!-- Esquerda: Logo + Números de WhatsApp e Fixo ao lado -->
-      <div class="header-left-group">
+      <!-- Esquerda: Logo + Número do lado -->
+      <div class="header-left">
         <a aria-label="Aki Sab Refrigeração" class="logo" href="#inicio">
-          <img alt="Aki Sab Refrigeração" decoding="async" fetchpriority="high" height="477" src="assents/logo-removebg-preview.png" width="520" />
+          <img alt="Aki Sab Refrigeração" decoding="async" fetchpriority="high" src="assents/logo-removebg-preview.png" />
         </a>
-        <div class="header-phones-top">
-          <svg><use href="#phone"></use></svg>
-          <span>(85) 9142-5425 / (85) 3092-3331</span>
+        <div class="header-numbers">
+          85 9142-5425 / 85 3092-3331
         </div>
       </div>
 
-      <!-- Centro: Menu + Instagram ao lado -->
-      <div class="nav-center-wrapper" id="menu">
-        <nav aria-label="Principal">
+      <!-- Direita: Menu, Insta e Botão Mobile -->
+      <div class="header-right">
+        <!-- O menu vai sumir no mobile e virar dropdown -->
+        <nav aria-label="Principal" id="menu">
           <ul>
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#diferenciais">Diferenciais</a></li>
@@ -175,17 +175,19 @@
             <li><a href="#contato">Contato</a></li>
           </ul>
         </nav>
-        <a href="https://www.instagram.com/aki_sab?stkn=MTk0ZWRmZXoyZ3prNw==" class="social-icon-top" rel="noopener" target="_blank" aria-label="Instagram">
+        
+        <!-- Insta sempre visível do lado de fora do menu -->
+        <a href="https://www.instagram.com/aki_sab?stkn=MTk0ZWRmZXoyZ3prNw==" class="insta-icon" rel="noopener" target="_blank" aria-label="Instagram">
           <svg><use href="#ig"></use></svg>
         </a>
-      </div>
 
-      <!-- Botão Hambúrguer Mobile -->
-      <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" class="burger" id="burger" type="button">
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewBox="0 0 24 24">
-          <path d="M4 7h16M4 12h16M4 17h16"></path>
-        </svg>
-      </button>
+        <!-- Botão Hambúrguer -->
+        <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" class="burger" id="burger" type="button">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewBox="0 0 24 24">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -197,8 +199,10 @@
       <div class="wrap">
         <div class="hero-content">
           
+          <!-- Frase com Logo no meio + Quebra de linha -->
           <h1 id="titulo-principal">
-            Conserto de Geladeira em <span class="hl-dark">Fortaleza</span>
+            Conserto de <img src="assents/logo-removebg-preview.png" alt="Logo Aki Sab" class="hero-title-logo" /> Geladeira em<br>
+            <span class="hl-dark">Fortaleza</span>
           </h1>
 
           <span class="eyebrow">Assistência técnica em Fortaleza e Região</span>
