@@ -237,15 +237,15 @@ nav a.active { color: var(--brand); }
 /* ==========================================================================
    5. HERO
    A logo é posicionada em % da IMAGEM, então fica sempre no mesmo ponto
-   (o lugar marcado: à esquerda do técnico, sobre a geladeira).
+   (agora no CENTRO do hero: 50% / 50%).
    Ajuste fino: --logo-x (horizontal), --logo-y (vertical), --logo-w (tamanho).
    Se o fundo2.png não for 2:1, ajuste --hero-ratio (ex.: 16 / 9).
    ========================================================================== */
 .hero {
   --hero-ratio: 2 / 1;
-  --logo-x: 57.5%;
-  --logo-y: 30%;
-  --logo-w: 16%;
+  --logo-x: 50%;
+  --logo-y: 50%;
+  --logo-w: 14%;
 
   padding: 0;
   background: #f8fbff;
@@ -299,7 +299,7 @@ nav a.active { color: var(--brand); }
 .hero-content .wrap { width: min(1120px, 100% - 40px); }
 
 .hero-copy {
-  max-width: min(520px, 46%);
+  max-width: min(480px, 40%);
   animation: up .9s .15s both;
 }
 
@@ -704,7 +704,7 @@ footer a:hover { color: var(--brand2); }
 
 /* Hero empilhado: imagem inteira (sem cortar) e texto logo abaixo */
 @media (max-width: 1000px) {
-  .hero { --logo-w: 19%; }
+  .hero { --logo-w: 22%; }
 
   .hero-media::after {
     background: linear-gradient(180deg, rgba(248, 251, 255, 0) 65%, #f8fbff 100%);
