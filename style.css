@@ -341,7 +341,7 @@ nav a.active { color: var(--brand); }
 .stat b { display: block; font-size: 1.6rem; font-weight: 800; color: var(--brand); }
 .stat span { font-size: .86rem; color: var(--muted); }
 
-/* Seção Serviços (Utilizando S1) */
+/* Seção Serviços (Utilizando S1.png) */
 #servicos {
   background: linear-gradient(135deg, rgba(215, 235, 255, 0.98), rgba(195, 225, 255, 0.98));
   border-bottom: 1px solid #b8d8fc;
@@ -394,7 +394,7 @@ nav a.active { color: var(--brand); }
 }
 .ico svg { width: 26px; height: 26px; }
 
-/* Seção Diferenciais (Incorporando S2 e S3) */
+/* Seção Diferenciais (Incorporando S2.png e S3.png) */
 #diferenciais {
   background: linear-gradient(180deg, rgba(230, 243, 255, 0.98), rgba(245, 250, 255, 1));
   border-bottom: 1px solid #d4e7fc;
@@ -422,7 +422,7 @@ nav a.active { color: var(--brand); }
 .card .ico { margin-bottom: 16px; }
 .card p { margin: 0; }
 
-/* Vitrine de Imagens Adicionais (S2 e S3) */
+/* Vitrine de Imagens Adicionais (S2.png e S3.png) */
 .gallery-showcase {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -639,7 +639,7 @@ footer a:hover { color: var(--brand2); }
 @media (max-width: 1040px) {
   nav { display: none; }
   .burger { display: grid; place-items: center; }
-  .header-phone { display: none; } /* Oculta telefone extra no header mobile se faltar espaço */
+  .header-phone { display: none; }
 }
 
 @media (max-width: 940px) {
