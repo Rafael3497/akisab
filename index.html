@@ -4,15 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light" />
-  
+
   <title>Aki Sab Refrigeração | Conserto de Geladeira em Fortaleza</title>
-  
+
   <!-- SEO Básico -->
   <meta name="description" content="Assistência técnica de geladeiras, freezers e frigobares em Fortaleza e região metropolitana. Manutenção preventiva e corretiva, com mais de 15 anos de experiência. Solicite seu orçamento." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="Aki Sab Refrigeração" />
   <meta name="theme-color" content="#1a7cf2" />
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
@@ -20,26 +20,28 @@
   <meta property="og:title" content="Aki Sab Refrigeração | Conserto de Geladeira em Fortaleza" />
   <meta property="og:description" content="Conserto e manutenção de geladeiras, freezers e frigobares em Fortaleza e região metropolitana." />
   <meta property="og:url" content="https://akisabrefrigeracao.com.br/" />
+  <!-- ATENÇÃO: crie/suba este arquivo (1200x630). Se não existir, o link compartilhado fica sem imagem. -->
   <meta property="og:image" content="https://akisabrefrigeracao.com.br/og-image.webp" />
   <meta property="og:image:alt" content="Aki Sab Refrigeração - conserto de geladeiras em Fortaleza" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Aki Sab Refrigeração | Conserto de Geladeira em Fortaleza" />
   <meta name="twitter:description" content="Conserto e manutenção de geladeiras, freezers e frigobares em Fortaleza e região metropolitana." />
   <meta name="twitter:image" content="https://akisabrefrigeracao.com.br/og-image.webp" />
-  
+
   <!-- Links e Fontes -->
   <link rel="canonical" href="https://akisabrefrigeracao.com.br/" />
   <link rel="alternate" hreflang="pt-BR" href="https://akisabrefrigeracao.com.br/" />
-  <link rel="icon" type="image/webp" href="/assents/logo-removebg-preview.png" />
+  <link rel="icon" type="image/png" href="/assents/logo-removebg-preview.png" />
+  <link rel="preload" as="image" href="assents/fundo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;display=swap" />
   <link rel="stylesheet" href="style.css" />
-  
+
   <!-- Schema.org / JSON-LD -->
   <script type="application/ld+json">
   {
@@ -48,8 +50,8 @@
     "@id": "https://akisabrefrigeracao.com.br/#localbusiness",
     "name": "Aki Sab Refrigeração",
     "url": "https://akisabrefrigeracao.com.br/",
-    "logo": "https://akisabrefrigeracao.com.br/logo.webp",
-    "image": "https://akisabrefrigeracao.com.br/tecnico-geladeira.webp",
+    "logo": "https://akisabrefrigeracao.com.br/assents/logo-removebg-preview.png",
+    "image": "https://akisabrefrigeracao.com.br/assents/servico.png",
     "description": "Assistência técnica em refrigeração, com conserto e manutenção preventiva e corretiva de geladeiras, freezers e frigobares em Fortaleza e região metropolitana.",
     "telephone": [
       "+55-85-3092-3331",
@@ -98,19 +100,10 @@
     "priceRange": "$$"
   }
   </script>
-
-  <style>
-    /* --- FIX: IMAGEM DE FUNDO DO HERO APARECENDO 100% COMPLETA NO MOBILE --- */
-    @media (max-width: 768px) {
-      #inicio.hero {
-        background-size: contain !important; /* Faz a imagem caber inteira sem cortar nada */
-        background-position: top center !important; /* Alinha a imagem no topo */
-        background-repeat: no-repeat !important; /* Impede que a imagem se multiplique */
-      }
-    }
-  </style>
 </head>
 <body>
+
+  <a class="skip" href="#conteudo-principal">Ir para o conteúdo</a>
 
   <!-- Biblioteca de ícones SVG -->
   <svg aria-hidden="true" height="0" width="0" style="position:absolute">
@@ -120,7 +113,8 @@
     <symbol id="ck" viewBox="0 0 24 24">
       <path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
     </symbol>
-    <symbol id="snow" viewBox="0 0 24 24">
+    <!-- Renomeado de "snow" para "ico-snow": o id "snow" já é usado pelo container da neve -->
+    <symbol id="ico-snow" viewBox="0 0 24 24">
       <path d="M12 2v20M4.900 7l14.200 10M4.900 17 19.100 7M9 3.500l3 2.500 3-2.500M9 20.500 12 18l3 2.500" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
     </symbol>
     <symbol id="shield" viewBox="0 0 24 24">
@@ -154,9 +148,9 @@
       </g>
     </symbol>
   </svg>
-  
+
   <div aria-hidden="true" class="snow" id="snow"></div>
-  
+
   <!-- Topbar -->
   <div class="topbar">
     <div class="wrap">
@@ -164,10 +158,10 @@
         <a href="tel:+558530923331">Escritório: (85) 3092-3331</a>
         <a href="mailto:akisabrefrigeracao@gmail.com">akisabrefrigeracao@gmail.com</a>
       </div>
-      <a href="tel:+5585991425425">WhatsApp: (85) 99142-5425</a>
+      <a href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%20gostaria%20de%20um%20or%C3%A7amento!" rel="noopener" target="_blank">WhatsApp: (85) 99142-5425</a>
     </div>
   </div>
-  
+
   <!-- Header -->
   <header id="hd">
     <div class="wrap nav">
@@ -183,33 +177,36 @@
           <li><a href="#contato">Contato</a></li>
         </ul>
       </nav>
-      <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" class="burger" id="burger">
+      <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" class="burger" id="burger" type="button">
         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.200" viewBox="0 0 24 24">
           <path d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
     </div>
   </header>
-  
+
   <!-- Conteúdo Principal -->
   <main id="conteudo-principal">
-    
+
     <!-- Hero Section -->
     <section aria-labelledby="titulo-principal" class="hero" id="inicio">
       <div class="wrap">
-        <span class="eyebrow">Assistência técnica em Fortaleza e região</span>
-        <h1 id="titulo-principal">Geladeira com defeito? <span class="hl">A gente resolve.</span></h1>
-        <div class="cta">
-          <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%20gostaria%20de%20um%20or%C3%A7amento!" rel="noopener" target="_blank">
-            <svg><use href="#wa"></use></svg>Pedir orçamento
-          </a>
-          <a class="btn btn-line" href="tel:+558530923331">
-            <svg><use href="#phone"></use></svg>Ligar agora
-          </a>
+        <div class="hero-card">
+          <span class="eyebrow">Assistência técnica em Fortaleza e região</span>
+          <h1 id="titulo-principal">Geladeira com defeito? <span class="hl">A gente resolve.</span></h1>
+          <p>Conserto e manutenção de geladeiras, freezers e frigobares em Fortaleza e região metropolitana.</p>
+          <div class="cta">
+            <a class="btn btn-wa" href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%20gostaria%20de%20um%20or%C3%A7amento!" rel="noopener" target="_blank">
+              <svg><use href="#wa"></use></svg>Pedir orçamento
+            </a>
+            <a class="btn btn-line" href="tel:+558530923331">
+              <svg><use href="#phone"></use></svg>Ligar agora
+            </a>
+          </div>
         </div>
       </div>
     </section>
-    
+
     <!-- Stats Section -->
     <section class="stats">
       <div class="wrap">
@@ -233,32 +230,32 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Serviços Section -->
     <section aria-labelledby="titulo-servicos" class="panel" id="servicos">
       <div class="wrap split">
-        <img alt="Técnico consertando geladeira" class="float rv" decoding="async" fetchpriority="high" height="500" loading="lazy" src="/assents/servico.png" width="500" />
+        <img alt="Técnico consertando geladeira" class="float rv" decoding="async" height="500" loading="lazy" src="/assents/servico.png" width="500" />
         <div class="rv" id="geladeira">
           <span class="eyebrow">Nossos serviços</span>
           <h2 id="titulo-servicos">Conserto e manutenção de refrigeradores</h2>
           <p>Manutenção preventiva e corretiva de todas as marcas do mercado, com equipe qualificada.</p>
           <div class="items">
             <div class="item">
-              <div class="ico"><svg><use href="#snow"></use></svg></div>
+              <div class="ico"><svg><use href="#ico-snow"></use></svg></div>
               <div>
                 <h3>Geladeira</h3>
                 <p>Diagnóstico e conserto para todos os modelos e marcas.</p>
               </div>
             </div>
             <div class="item">
-              <div class="ico"><svg><use href="#snow"></use></svg></div>
+              <div class="ico"><svg><use href="#ico-snow"></use></svg></div>
               <div>
                 <h3>Freezer</h3>
                 <p>Manutenção e reparo para uso residencial e comercial.</p>
               </div>
             </div>
             <div class="item">
-              <div class="ico"><svg><use href="#snow"></use></svg></div>
+              <div class="ico"><svg><use href="#ico-snow"></use></svg></div>
               <div>
                 <h3>Frigobar</h3>
                 <p>Conserto rápido para manter tudo sempre gelado.</p>
@@ -271,7 +268,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Diferenciais Section -->
     <section aria-labelledby="titulo-diferenciais" id="diferenciais">
       <div class="wrap">
@@ -303,7 +300,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Marcas Section -->
     <section aria-labelledby="titulo-marcas" class="panel" id="marcas">
       <div class="wrap">
@@ -326,7 +323,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Empresa Section -->
     <section aria-labelledby="titulo-empresa" id="empresa">
       <div class="wrap about">
@@ -353,7 +350,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Contato Section -->
     <section aria-labelledby="titulo-contato" class="panel" id="contato">
       <div class="wrap">
@@ -412,9 +409,9 @@
         </div>
       </div>
     </section>
-    
+
   </main>
-  
+
   <!-- Footer -->
   <footer>
     <div class="wrap">
@@ -453,12 +450,12 @@
       <div class="copy">© 2026 Aki Sab Refrigeração. Todos os direitos reservados.</div>
     </div>
   </footer>
-  
+
   <!-- WhatsApp FAB & Scripts -->
   <a aria-label="Falar no WhatsApp" class="fab" href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%20gostaria%20de%20um%20or%C3%A7amento!" rel="noopener" target="_blank">
     <svg><use href="#wa"></use></svg>
   </a>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
