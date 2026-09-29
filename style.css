@@ -164,8 +164,29 @@ header.sc { box-shadow: 0 8px 24px rgba(15, 42, 68, .1); }
   height: 84px; 
 }
 
-/* Esquerda: Logo pura */
-.logo img { height: 64px; width: auto; display: block; }
+/* Esquerda: Logo + Números de WhatsApp e Fixo ao lado */
+.header-left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img { height: 56px; width: auto; display: block; }
+
+.header-phones-top {
+  font-weight: 700;
+  font-size: .8rem;
+  color: var(--ink);
+  background: #f0f7ff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #cce3f9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.header-phones-top svg { width: 14px; height: 14px; color: var(--brand); flex: none; }
 
 /* Centro: Menu + Instagram ao lado */
 .nav-center-wrapper {
@@ -204,27 +225,6 @@ nav a.active { color: var(--brand); }
 }
 .social-icon-top:hover { transform: translateY(-2px); opacity: .9; }
 .social-icon-top svg { width: 18px; height: 18px; }
-
-/* Direita: Telefone Fixo */
-.header-right-group {
-  display: flex;
-  align-items: center;
-}
-
-.header-phone-fixed {
-  font-weight: 700;
-  font-size: .85rem;
-  color: var(--ink);
-  background: #f0f7ff;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid #cce3f9;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-.header-phone-fixed svg { width: 14px; height: 14px; color: var(--brand); flex: none; }
 
 .burger {
   display: none;
@@ -618,7 +618,7 @@ footer a:hover { color: var(--brand2); }
   nav li a { display: block; padding: 14px 4px; border-bottom: 1px solid #e1edfc; }
   .social-icon-top { align-self: flex-start; margin-top: 10px; }
   .burger { display: flex; }
-  .header-right-group { display: none; }
+  .header-phones-top { display: none; }
 }
 
 @media (max-width: 940px) {
