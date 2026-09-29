@@ -60,7 +60,7 @@ a { color: inherit; text-decoration: none; }
 section { padding: 76px 0; position: relative; z-index: 1; }
 
 h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; letter-spacing: -.02em; text-wrap: balance; }
-h1 { font-size: clamp(1.7rem, 3.8vw, 2.6rem); font-weight: 800; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; }
 h2 { font-size: clamp(1.6rem, 4.4vw, 2.4rem); font-weight: 800; }
 h3 { font-size: 1.15rem; font-weight: 800; }
 p  { margin: 0 0 14px; color: var(--muted); }
@@ -164,32 +164,17 @@ header.sc { box-shadow: 0 8px 24px rgba(15, 42, 68, .1); }
   height: 84px; 
 }
 
-/* Lado esquerdo do topo: Logo + Número do WhatsApp escrito */
-.header-left-group {
+/* Esquerda: Logo pura */
+.logo img { height: 64px; width: auto; display: block; }
+
+/* Centro: Menu + Instagram ao lado */
+.nav-center-wrapper {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
-.logo img { height: 60px; width: auto; display: block; }
-
-.header-top-whatsapp {
-  font-weight: 700;
-  font-size: .85rem;
-  color: var(--ink);
-  background: #f0f7ff;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid #cce3f9;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-.header-top-whatsapp svg { width: 14px; height: 14px; color: var(--wa); flex: none; }
-
-/* Menu centralizado */
-nav { flex: 1; display: flex; justify-content: center; }
+nav { display: flex; justify-content: center; }
 nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-weight: 600; font-size: .9rem; }
 nav a { position: relative; color: var(--ink); }
 nav a::after {
@@ -204,13 +189,6 @@ nav a::after {
 }
 nav a:hover::after, nav a.active::after { width: 100%; }
 nav a.active { color: var(--brand); }
-
-/* Lado direito do topo: Instagram ao lado do menu + Telefone fixo */
-.header-right-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
 
 .social-icon-top {
   width: 36px;
@@ -227,20 +205,26 @@ nav a.active { color: var(--brand); }
 .social-icon-top:hover { transform: translateY(-2px); opacity: .9; }
 .social-icon-top svg { width: 18px; height: 18px; }
 
+/* Direita: Telefone Fixo */
+.header-right-group {
+  display: flex;
+  align-items: center;
+}
+
 .header-phone-fixed {
   font-weight: 700;
-  font-size: .82rem;
+  font-size: .85rem;
   color: var(--ink);
   background: #f0f7ff;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid #cce3f9;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   white-space: nowrap;
 }
-.header-phone-fixed svg { width: 13px; height: 13px; color: var(--brand); flex: none; }
+.header-phone-fixed svg { width: 14px; height: 14px; color: var(--brand); flex: none; }
 
 .burger {
   display: none;
@@ -289,29 +273,15 @@ nav a.active { color: var(--brand); }
 }
 
 .hero-content {
-  max-width: 600px;
+  max-width: 580px;
   margin-left: 20px;
   animation: up .9s .15s both;
 }
 
 .hero h1 {
   color: var(--ink);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
-  font-size: clamp(1.6rem, 3.6vw, 2.5rem);
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* Logo ao lado direito da palavra Geladeira */
-.hero-title-logo {
-  height: 44px;
-  width: auto;
-  display: inline-block;
-  vertical-align: middle;
-  filter: drop-shadow(0 4px 8px rgba(26, 124, 242, 0.2));
 }
 
 .hero p { 
@@ -626,12 +596,12 @@ footer a:hover { color: var(--brand2); }
    11. RESPONSIVO
    ========================================================================== */
 @media (min-width: 1041px) {
-  nav { display: flex !important; }
+  .nav-center-wrapper { display: flex !important; }
   .burger { display: none !important; }
 }
 
 @media (max-width: 1040px) {
-  nav {
+  .nav-center-wrapper {
     position: absolute;
     left: 0;
     right: 0;
@@ -639,15 +609,16 @@ footer a:hover { color: var(--brand2); }
     background: #fff;
     border-bottom: 1px solid #cce3f9;
     display: none;
+    flex-direction: column;
     padding: 10px 20px 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
   }
-  nav.open { display: block; }
-  nav ul { flex-direction: column; gap: 0; }
+  .nav-center-wrapper.open { display: flex; }
+  nav ul { flex-direction: column; gap: 0; width: 100%; }
   nav li a { display: block; padding: 14px 4px; border-bottom: 1px solid #e1edfc; }
+  .social-icon-top { align-self: flex-start; margin-top: 10px; }
   .burger { display: flex; }
-  .header-top-whatsapp { display: none; }
-  .header-phone-fixed { display: none; }
+  .header-right-group { display: none; }
 }
 
 @media (max-width: 940px) {
@@ -672,7 +643,6 @@ footer a:hover { color: var(--brand2); }
     text-align: center;
     margin-inline: auto;
   }
-  .hero h1 { justify-content: center; }
   .cta { justify-content: center; }
   .cta .btn { max-width: 100%; }
 }
