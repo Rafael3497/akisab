@@ -13,9 +13,9 @@
   --sh: 0 12px 34px rgba(26, 124, 242, .12);
   
   /* Tons de azul refinados para as caixas do site */
-  --card-bg-1: rgba(238, 247, 255, 0.92);
-  --card-bg-2: rgba(220, 239, 255, 0.94);
-  --card-bg-3: rgba(205, 231, 255, 0.92);
+  --card-bg-1: rgba(238, 247, 255, 0.94);
+  --card-bg-2: rgba(220, 239, 255, 0.95);
+  --card-bg-3: rgba(205, 231, 255, 0.94);
 
   /* Caminho da imagem de fundo */
   --bg-img: url("assents/fundo.png");
@@ -63,6 +63,18 @@ img, svg, iframe { max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 
 :focus-visible { outline: 3px solid var(--brand2); outline-offset: 3px; border-radius: 6px; }
+
+/* Barra de Progresso de Leitura */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  z-index: 100;
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
 
 /* ==========================================================================
    2. LAYOUT BASE / TIPOGRAFIA
@@ -177,7 +189,8 @@ nav a::after {
   background: var(--brand);
   transition: width .25s;
 }
-nav a:hover::after { width: 100%; }
+nav a:hover::after, nav a.active::after { width: 100%; }
+nav a.active { color: var(--brand); }
 
 .burger {
   display: none;
@@ -192,7 +205,7 @@ nav a:hover::after { width: 100%; }
 .burger svg { width: 24px; height: 24px; }
 
 /* ==========================================================================
-   5. HERO
+   5. HERO (SEM CAIXA BRANCA - TEXTO DIRETO NA IMAGEM)
    ========================================================================== */
 .hero {
   min-height: min(88vh, 750px);
@@ -204,10 +217,18 @@ nav a:hover::after { width: 100%; }
 .hero .wrap {
   max-width: 640px;
   animation: up .9s .15s both;
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
-  border: none;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Anula qualquer estilo indesejado do hero-card herdado do HTML */
+.hero-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 .hero h1, .hero p {
@@ -401,7 +422,7 @@ textarea { min-height: 120px; resize: vertical; }
 }
 
 /* ==========================================================================
-   9. EFEITO DE BLOCOS COM DIFERENTES TONS DE AZUL
+   9. EFEITO DE BLOCOS EM CAMADAS AZUIS
    ========================================================================== */
 .split > div:first-child,
 .about > div:first-child {
@@ -479,6 +500,7 @@ footer a:hover { color: var(--brand2); }
 @keyframes shine { to { left: 130%; } }
 @keyframes ring  { to { transform: scale(1.6); opacity: 0; } }
 @keyframes fall  { to { transform: translateY(110vh) rotate(360deg); } }
+@keyframes spin  { to { transform: rotate(360deg); } }
 
 /* ==========================================================================
    13. RESPONSIVO
@@ -508,7 +530,7 @@ footer a:hover { color: var(--brand2); }
   nav ul { flex-direction: column; gap: 0; }
   nav li a { display: block; padding: 15px 4px; border-bottom: 1px solid var(--line); }
 
-  /* Foco da imagem centralizado no celular */
+  /* Foco da imagem centralizado no celular para garantir que o técnico apareça inteiro */
   body::before {
     background-position: 25% top;
   }
