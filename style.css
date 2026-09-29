@@ -57,6 +57,19 @@ a { color: inherit; text-decoration: none; }
 
 :focus-visible { outline: 3px solid var(--brand2); outline-offset: 3px; border-radius: 6px; }
 
+/* Link de acessibilidade oculto */
+.skip {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--brand);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+.skip:focus { top: 0; }
+
 /* Barra de Progresso de Leitura */
 .scroll-progress {
   position: fixed;
@@ -84,16 +97,16 @@ p  { margin: 0 0 14px; color: var(--muted); }
 
 .eyebrow {
   display: inline-block;
-  font-size: .78rem;
+  font-size: .75rem;
   font-weight: 800;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--brand);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 5px 12px;
   border-radius: 999px;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 6px rgba(26, 124, 242, 0.1);
+  margin-bottom: 8px;
+  box-shadow: 0 2px 6px rgba(26, 124, 242, 0.15);
 }
 
 .hl {
@@ -166,6 +179,16 @@ header {
 }
 header.sc { box-shadow: 0 8px 24px rgba(15, 42, 68, .1); }
 
+.topbar {
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  color: #fff;
+  font-size: .85rem;
+  position: relative;
+  z-index: 2;
+}
+.topbar .wrap { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; flex-wrap: wrap; }
+.topbar .hide-m { display: flex; gap: 18px; }
+
 .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
 .logo img { height: 52px; width: auto; display: block; }
 
@@ -197,13 +220,13 @@ nav a.active { color: var(--brand); }
 .burger svg { width: 24px; height: 24px; }
 
 /* ==========================================================================
-   5. HERO
+   5. HERO (Ajustado para ficar perfeitamente abaixo do rosto do técnico)
    ========================================================================== */
 .hero {
-  min-height: min(88vh, 750px);
+  min-height: min(90vh, 780px);
   display: flex;
-  align-items: center;
-  padding: 40px 0 64px;
+  align-items: flex-end;
+  padding: 40px 0 50px;
 }
 
 .hero .wrap {
@@ -216,22 +239,23 @@ nav a.active { color: var(--brand); }
 }
 
 .hero h1, .hero p {
-  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 4px 20px rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.95), 0 4px 20px rgba(255, 255, 255, 0.95);
 }
 .hero h1 .hl { text-shadow: none; }
 .hero p { 
-  font-size: 1.08rem; 
+  font-size: 1rem; 
   color: #1e3a5f;
   font-weight: 600;
+  margin-bottom: 16px;
 }
 
-.cta  { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 22px; }
+.cta  { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
 
 /* ==========================================================================
    6. SEÇÕES COM TONS DE AZUL MODERNOS E ALTERNADOS
    ========================================================================== */
 
-/* Seção Stats (Tom Azul Suave 1) */
+/* Seção Stats */
 .stats {
   background: linear-gradient(180deg, rgba(238, 247, 255, 0.95), rgba(225, 240, 255, 0.98));
   border-top: 1px solid #d4e7fc;
@@ -251,7 +275,7 @@ nav a.active { color: var(--brand); }
 .stat b { display: block; font-size: 1.6rem; font-weight: 800; color: var(--brand); }
 .stat span { font-size: .86rem; color: var(--muted); }
 
-/* Seção Serviços (Tom Azul Corporativo 2) */
+/* Seção Serviços */
 #servicos {
   background: linear-gradient(135deg, rgba(215, 235, 255, 0.96), rgba(195, 225, 255, 0.96));
   border-bottom: 1px solid #b8d8fc;
@@ -264,6 +288,19 @@ nav a.active { color: var(--brand); }
   border: 1px solid #cce3f9;
   box-shadow: var(--sh);
 }
+.split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
+
+.float {
+  animation: flo 5s ease-in-out infinite;
+  filter: drop-shadow(0 20px 30px rgba(26, 124, 242, .2));
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
+  display: block;
+}
+
+.items { display: grid; gap: 14px; margin: 22px 0; }
+
 .item {
   display: flex;
   gap: 16px;
@@ -289,7 +326,7 @@ nav a.active { color: var(--brand); }
 }
 .ico svg { width: 26px; height: 26px; }
 
-/* Seção Diferenciais (Tom Azul Limpo 3) */
+/* Seção Diferenciais */
 #diferenciais {
   background: linear-gradient(180deg, rgba(230, 243, 255, 0.96), rgba(245, 250, 255, 0.98));
   border-bottom: 1px solid #d4e7fc;
@@ -317,7 +354,7 @@ nav a.active { color: var(--brand); }
 .card .ico { margin-bottom: 16px; }
 .card p { margin: 0; }
 
-/* Seção Marcas (Tom Azul Profundo/Suave 4) */
+/* Seção Marcas */
 #marcas {
   background: linear-gradient(135deg, rgba(200, 225, 255, 0.92), rgba(225, 242, 255, 0.95));
   border-bottom: 1px solid #b8d8fc;
@@ -334,7 +371,7 @@ nav a.active { color: var(--brand); }
 }
 .brands span:hover { transform: translateY(-3px); background: var(--brand); color: #fff; }
 
-/* Seção Empresa (Tom Azul Elegante 5) */
+/* Seção Empresa */
 #empresa {
   background: linear-gradient(180deg, rgba(235, 245, 255, 0.96), rgba(220, 238, 255, 0.98));
   border-bottom: 1px solid #cce3f9;
@@ -362,7 +399,7 @@ nav a.active { color: var(--brand); }
 .mvv p { margin: 0; }
 
 /* ==========================================================================
-   7. CONTATO + MAPA (Tom Azul Completo 6)
+   7. CONTATO + MAPA
    ========================================================================== */
 #contato {
   background: linear-gradient(135deg, rgba(210, 232, 255, 0.95), rgba(190, 220, 255, 0.95));
@@ -433,7 +470,7 @@ textarea { min-height: 120px; resize: vertical; }
 }
 
 /* ==========================================================================
-   8. FOOTER (Tom Azul Escuro Profundo)
+   8. FOOTER
    ========================================================================== */
 footer {
   position: relative;
@@ -533,16 +570,17 @@ footer a:hover { color: var(--brand2); }
     background-position: 25% top;
   }
 
+  /* Posicionamento perfeito na parte inferior para não cobrir o rosto do técnico */
   .hero {
     align-items: flex-end;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     min-height: 85vh;
   }
 
   .hero .wrap {
     text-align: center;
     margin-inline: auto;
-    margin-top: 300px;
+    margin-top: 340px; /* Joga o texto bem para baixo, logo acima dos botões */
   }
 
   .cta { justify-content: center; }
@@ -552,10 +590,10 @@ footer a:hover { color: var(--brand2); }
 @media (max-width: 500px) {
   section { padding: 50px 0; }
   .hero {
-    padding-bottom: 25px;
+    padding-bottom: 30px;
   }
   .hero .wrap {
-    margin-top: 260px;
+    margin-top: 300px;
   }
   .why, .fgrid { grid-template-columns: 1fr; }
   .map iframe { height: 300px; }
