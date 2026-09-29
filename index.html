@@ -150,17 +150,15 @@
     </symbol>
   </svg>
 
-  <!-- Header (Atualizado com Home e Novo Layout) -->
+  <!-- Header -->
   <header id="hd">
     <div class="wrap nav">
-      <!-- Esquerda: Apenas a Logo -->
       <div class="header-left">
         <a aria-label="Aki Sab Refrigeração" class="logo" href="#inicio">
           <img alt="Aki Sab Refrigeração" decoding="async" fetchpriority="high" src="assents/logo-removebg-preview.png" />
         </a>
       </div>
 
-      <!-- Centro: Menu com "Home" -->
       <div class="header-center">
         <nav aria-label="Principal" id="menu">
           <ul>
@@ -174,7 +172,6 @@
         </nav>
       </div>
 
-      <!-- Direita: Instagram, WhatsApp (com número) e Botão Mobile -->
       <div class="header-right">
         <a href="https://www.instagram.com/aki_sab?stkn=MTk0ZWRmZXoyZ3prNw==" class="insta-icon" rel="noopener" target="_blank" aria-label="Instagram">
           <svg><use href="#ig"></use></svg>
@@ -185,7 +182,6 @@
           <span>85 99142-5425</span>
         </a>
 
-        <!-- Botão Hambúrguer -->
         <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" class="burger" id="burger" type="button">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewBox="0 0 24 24">
             <path d="M4 7h16M4 12h16M4 17h16"></path>
@@ -198,7 +194,7 @@
   <!-- Conteúdo Principal -->
   <main id="conteudo-principal">
 
-    <!-- Hero Section (Com retângulos e Logo no centro/direita) -->
+    <!-- Hero Section -->
     <section aria-labelledby="titulo-principal" class="hero" id="inicio">
       <div class="wrap">
         
@@ -207,7 +203,6 @@
             Conserto de Geladeira em <span class="hl-dark">Fortaleza</span>
           </h1>
 
-          <!-- Retângulos de Destaque -->
           <div class="hero-tags">
             <div class="tag-rect">Geladeiras</div>
             <div class="tag-rect">Freezer</div>
@@ -226,7 +221,6 @@
           </div>
         </div>
 
-        <!-- Logo Grande no Centro/Direita -->
         <div class="hero-big-logo">
           <img src="assents/logo-removebg-preview.png" alt="Logo Aki Sab" />
         </div>
@@ -281,7 +275,6 @@
                 <p>Manutenção e reparo para uso residencial e comercial.</p>
               </div>
             </div>
-            <!-- Atualizado de Frigobar para Expositor -->
             <div class="item">
               <div class="ico"><svg><use href="#ico-snow"></use></svg></div>
               <div>
@@ -297,49 +290,59 @@
       </div>
     </section>
 
-    <!-- Diferenciais Section -->
+    <!-- DIFERENCIAIS (Atualizado exatamente com os textos da imagem 1) -->
     <section aria-labelledby="titulo-diferenciais" id="diferenciais">
       <div class="wrap">
-        <div class="head rv">
-          <span class="eyebrow">Por que a Aki Sab</span>
-          <h2 id="titulo-diferenciais">Experiência que você sente no resultado</h2>
+        <div class="head-diff rv">
+          <h2>Por que escolher a Akisab para cuidar da sua refrigeração?</h2>
         </div>
-        <div class="why">
-          <div class="card rv">
-            <div class="ico"><svg><use href="#shield"></use></svg></div>
-            <h3>+15 anos</h3>
-            <p>Tradição e reputação construídas na região.</p>
+
+        <!-- 4 Cards Superiores -->
+        <div class="diff-grid-4 rv">
+          <div class="diff-card">
+            <div>
+              <div class="diff-ico"><svg><use href="#shield"></use></svg></div>
+              <h3>Especialistas em refrigeração</h3>
+              <p>Geladeiras multimarcas, freezers e expositores verticais.</p>
+            </div>
           </div>
-          <div class="card rv">
-            <div class="ico"><svg><use href="#tool"></use></svg></div>
-            <h3>Equipe qualificada</h3>
-            <p>Estrutura moderna e gestão profissional.</p>
+          <div class="diff-card">
+            <div>
+              <div class="diff-ico"><svg><use href="#tool"></use></svg></div>
+              <h3>Diagnóstico explicado</h3>
+              <p>Entenda o problema e o reparo proposto antes de decidir.</p>
+            </div>
           </div>
-          <div class="card rv">
-            <div class="ico"><svg><use href="#home"></use></svg></div>
-            <h3>Onde você precisar</h3>
-            <p>Na sua residência, na empresa ou na nossa sede.</p>
+          <div class="diff-card">
+            <div>
+              <div class="diff-ico"><svg><use href="#home"></use></svg></div>
+              <h3>Atendimento no seu endereço</h3>
+              <p>Residências e estabelecimentos comerciais em Fortaleza.</p>
+            </div>
           </div>
-          <div class="card rv">
-            <div class="ico"><svg><use href="#clock"></use></svg></div>
-            <h3>Resposta rápida</h3>
-            <p>Chame no WhatsApp e receba seu orçamento.</p>
+          <div class="diff-card">
+            <div>
+              <div class="diff-ico"><svg><use href="#clock"></use></svg></div>
+              <h3>Agendamento sem complicação</h3>
+              <p>Conte o problema pelo WhatsApp e consulte a agenda.</p>
+            </div>
           </div>
         </div>
 
-        <div class="gallery-showcase rv">
-          <div class="gallery-card">
-            <img src="S2.png" alt="Manutenção de Geladeiras em Fortaleza" loading="lazy" />
-            <div class="gallery-card-body">
-              <h3>Suporte Especializado</h3>
-              <p>Ferramentas modernas e técnicos experientes para resolver o problema na sua primeira visita.</p>
+        <!-- 2 Cards Inferiores com Imagens -->
+        <div class="diff-grid-2 rv">
+          <div class="diff-card diff-card-img">
+            <img src="S2.png" alt="Técnico realizando manutenção" loading="lazy" />
+            <div class="diff-body">
+              <h3>Uma avaliação cuidadosa faz diferença</h3>
+              <p>Identificamos a causa do defeito e explicamos o reparo indicado.</p>
             </div>
           </div>
-          <div class="gallery-card">
-            <img src="S3.png" alt="Atendimento Domiciliar Aki Sab" loading="lazy" />
-            <div class="gallery-card-body">
-              <h3>Atendimento com Garantia</h3>
-              <p>Conforto e segurança para você e sua família, com total transparência em cada peça e reparo.</p>
+          <div class="diff-card diff-card-img">
+            <img src="S3.png" alt="Conserto em domicílio" loading="lazy" />
+            <div class="diff-body">
+              <h3>Conserto com garantia e condições claras</h3>
+              <p>Você conhece o serviço e as condições da garantia antes de autorizar.</p>
             </div>
           </div>
         </div>
@@ -347,51 +350,99 @@
       </div>
     </section>
 
-    <!-- Marcas Section -->
+    <!-- MARCAS (Atualizado com interatividade e botão azul da imagem 2) -->
     <section aria-labelledby="titulo-marcas" class="panel" id="marcas">
       <div class="wrap">
-        <div class="head rv">
+        <div class="marcas-header rv">
           <span class="eyebrow">Marcas</span>
-          <h2 id="titulo-marcas">Assistência para as marcas que você usa</h2>
-          <p>Trabalhamos com as principais fabricantes do mercado.</p>
+          <h2 id="titulo-marcas">Sua geladeira é de uma dessas marcas?</h2>
+          <p>A Akisab realiza conserto multimarcas em Fortaleza. Encontre a sua e agende uma avaliação.</p>
         </div>
-        <div class="brands rv">
-          <span>Brastemp</span>
-          <span>Consul</span>
-          <span>Electrolux</span>
-          <span>Bosch</span>
-          <span>Continental</span>
-          <span>GE</span>
-          <span>LG</span>
-          <span>Mabe</span>
-          <span>Panasonic</span>
-          <span>e outras</span>
+
+        <div class="marcas-grid rv">
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #002D62;">BRASTEMP</span>
+            <span>Brastemp</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #0052CC;">Consul</span>
+            <span>Consul</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #000000;">Electrolux</span>
+            <span>Electrolux</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #003399;">Panasonic</span>
+            <span>Panasonic</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #D60000;">LG</span>
+            <span>LG</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #004B87;">mabe</span>
+            <span>Mabe</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #CC0000;">BOSCH</span>
+            <span>Bosch</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #0066CC;">Midea</span>
+            <span>Midea</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #000000;">Continental</span>
+            <span>Continental</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #0A2540;">Springer</span>
+            <span>Springer</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #002A5C;">Carrier</span>
+            <span>Carrier</span>
+          </div>
+          <div class="marca-card">
+            <span class="marca-logo-text" style="color: #1428A0;">SAMSUNG</span>
+            <span>Samsung</span>
+          </div>
+        </div>
+
+        <div class="marcas-cta-container rv">
+          <a href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%2C%20gostaria%20de%20consultar%20o%20atendimento%20da%20minha%20marca!" class="btn-marcas-action" rel="noopener" target="_blank">
+            <span>Consultar atendimento da minha marca</span>
+            <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Empresa Section -->
+    <!-- EMPRESA (Atualizado com os textos da imagem 3) -->
     <section aria-labelledby="titulo-empresa" id="empresa">
-      <div class="wrap about">
-        <div class="rv">
-          <span class="eyebrow">Sobre a empresa</span>
-          <h2 id="titulo-empresa">A melhor solução em conserto de geladeira</h2>
-          <p>Com mais de 15 anos de experiência, a Aki Sab Refrigeração vem se consolidando no mercado regional. Contamos com estrutura moderna, equipe qualificada e gestão profissional para um serviço de excelência.</p>
-          <p>Atendemos toda Fortaleza e região metropolitana, em residências, empresas ou no nosso endereço, com manutenção preventiva e corretiva.</p>
-          <a class="btn btn-blue" href="#contato">Fale conosco</a>
+      <div class="wrap about-grid">
+        <div class="about-main-box rv">
+          <div>
+            <span class="eyebrow">Sobre a Akisab</span>
+            <h2>Confiança no diagnóstico.<br>Clareza no conserto.</h2>
+            <p>A Akisab Refrigeração atende em Fortaleza com técnicos experientes em geladeiras, freezers e expositores verticais. Avaliamos cada equipamento para identificar a causa do defeito e indicar o reparo adequado.</p>
+            <p>Explicamos o serviço e suas condições antes da execução. Trabalhamos com agilidade, preço justo e garantia conforme o reparo realizado.</p>
+          </div>
+          <a class="btn btn-blue" href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20visita%20t%C3%A9cnica." target="_blank" rel="noopener" style="max-width: 260px; margin-top: 24px;">Agendar visita técnica</a>
         </div>
-        <div class="mvv rv">
-          <div>
-            <h3>Missão</h3>
-            <p>Oferecer serviços especializados em refrigeração, com foco nas demandas dos nossos clientes.</p>
+        <div class="about-sub-boxes rv">
+          <div class="about-sub-card">
+            <h3>Nossa missão</h3>
+            <p>Resolver problemas de refrigeração com honestidade, atendimento ágil e diagnóstico claro.</p>
           </div>
-          <div>
-            <h3>Visão</h3>
-            <p>Ser referência e a melhor opção para clientes, colaboradores e fornecedores de todo o Nordeste.</p>
+          <div class="about-sub-card">
+            <h3>Nosso compromisso</h3>
+            <p>Cumprir o combinado, respeitar seu tempo e informar os custos antes do reparo.</p>
           </div>
-          <div>
-            <h3>Valores</h3>
-            <p>Comprometimento, qualidade, ética, excelência, sustentabilidade, confiança e valorização das pessoas.</p>
+          <div class="about-sub-card">
+            <h3>O que valorizamos</h3>
+            <p>Idoneidade, confiança, cuidado técnico e garantia nas condições informadas ao cliente.</p>
           </div>
         </div>
       </div>
