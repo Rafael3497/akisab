@@ -150,17 +150,15 @@
     </symbol>
   </svg>
 
-  <div aria-hidden="true" class="snow" id="snow"></div>
-
   <!-- Header -->
   <header id="hd">
     <div class="wrap nav">
-      <!-- Logo Esquerda Maior (em assents/) -->
+      <!-- Logo Esquerda -->
       <a aria-label="Aki Sab Refrigeração" class="logo" href="#inicio">
         <img alt="Aki Sab Refrigeração" decoding="async" fetchpriority="high" height="477" src="assents/logo-removebg-preview.png" width="520" />
       </a>
 
-      <!-- Menu Centralizado -->
+      <!-- Menu Centralizado (Aparece no PC, recolhido no celular) -->
       <nav aria-label="Principal" id="menu">
         <ul>
           <li><a href="#servicos">Serviços</a></li>
@@ -187,8 +185,9 @@
         </div>
       </div>
 
+      <!-- Botão Hambúrguer (Apenas visível em Dispositivos Móveis) -->
       <button aria-controls="menu" aria-expanded="false" aria-label="Abrir menu" class="burger" id="burger" type="button">
-        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.200" viewBox="0 0 24 24">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.2" viewBox="0 0 24 24">
           <path d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
@@ -202,7 +201,6 @@
     <section aria-labelledby="titulo-principal" class="hero" id="inicio">
       <div class="wrap">
         <div class="hero-content">
-          <!-- Logo centralizada na capa grande (em assents/) -->
           <div class="hero-badge-logo">
             <img src="assents/logo-removebg-preview.png" alt="Aki Sab Logo" />
           </div>
@@ -251,7 +249,7 @@
       </div>
     </section>
 
-    <!-- Serviços Section (Usando S1.png) -->
+    <!-- Serviços Section -->
     <section aria-labelledby="titulo-servicos" class="panel" id="servicos">
       <div class="wrap split">
         <img alt="Serviço de refrigeração" class="float rv" decoding="async" height="500" loading="lazy" src="S1.png" width="500" />
@@ -289,7 +287,7 @@
       </div>
     </section>
 
-    <!-- Diferenciais Section (Com S2.png e S3.png integradas em destaque) -->
+    <!-- Diferenciais Section -->
     <section aria-labelledby="titulo-diferenciais" id="diferenciais">
       <div class="wrap">
         <div class="head rv">
@@ -319,7 +317,6 @@
           </div>
         </div>
 
-        <!-- Vitrine com S2.png e S3.png -->
         <div class="gallery-showcase rv">
           <div class="gallery-card">
             <img src="S2.png" alt="Manutenção de Geladeiras em Fortaleza" loading="lazy" />
@@ -490,11 +487,12 @@
     </div>
   </footer>
 
-  <!-- WhatsApp FAB & Scripts -->
+  <!-- WhatsApp FAB -->
   <a aria-label="Falar no WhatsApp" class="fab" href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%20gostaria%20de%20um%20or%C3%A7amento!" rel="noopener" target="_blank">
     <svg><use href="#wa"></use></svg>
   </a>
 
+  <!-- Script JS -->
   <script src="script.js"></script>
 </body>
 </html>
