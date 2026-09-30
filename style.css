@@ -1,4 +1,4 @@
-/* ==========================================================================
+/* ============================================================================
    1. VARIÁVEIS / RESET
    ========================================================================== */
 :root {
@@ -49,7 +49,7 @@ a { color: inherit; text-decoration: none; }
 }
 .skip:focus { top: 0; }
 
-/* ==========================================================================
+/* ============================================================================
    2. LAYOUT BASE / TIPOGRAFIA
    ========================================================================== */
 .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
@@ -90,7 +90,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
 }
 .head p { margin-bottom: 0; }
 
-/* ==========================================================================
+/* ===========================================================================
    3. BOTÕES
    ========================================================================== */
 .btn {
@@ -149,7 +149,7 @@ p  { margin: 0 0 14px; color: var(--muted); }
   width: auto;
 }
 
-/* ==========================================================================
+/* ===========================================================================
    4. HEADER + NAV
    ========================================================================== */
 header {
@@ -175,12 +175,12 @@ header.sc { box-shadow: 0 8px 24px rgba(15, 42, 68, .1); }
 .header-right { display: flex; align-items: center; gap: 16px; flex: 0 0 auto; }
 .header-center { flex: 1; display: flex; justify-content: center; }
 
-.logo img { height: 50px; width: auto; display: block; }
+.logo img { height: 58px; width: auto; display: block; }
 
-nav { display: flex; align-items: center; }
-nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-weight: 600; font-size: .9rem; }
-nav a { position: relative; color: var(--ink); }
-nav a::after {
+#menu { display: flex; align-items: center; }
+#menu ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-weight: 600; font-size: .9rem; }
+#menu a { position: relative; color: var(--ink); }
+#menu a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -190,8 +190,8 @@ nav a::after {
   background: var(--brand);
   transition: width .25s;
 }
-nav a:hover::after, nav a.active::after { width: 100%; }
-nav a.active { color: var(--brand); }
+#menu a:hover::after, #menu a.active::after { width: 100%; }
+#menu a.active { color: var(--brand); }
 
 .insta-icon {
   width: 38px;
@@ -207,6 +207,9 @@ nav a.active { color: var(--brand); }
 }
 .insta-icon:hover { transform: translateY(-2px); opacity: .9; }
 .insta-icon svg { width: 20px; height: 20px; }
+.facebook-icon { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: #1877f2; box-shadow: 0 4px 10px rgba(0, 0, 0, .1); transition: transform .2s, opacity .2s; flex: none; }
+.facebook-icon:hover { transform: translateY(-2px); opacity: .9; }
+.facebook-icon svg { width: 21px; height: 21px; }
 
 .wa-header-btn {
   display: flex;
@@ -243,9 +246,9 @@ nav a.active { color: var(--brand); }
    ========================================================================== */
 .hero {
   --hero-ratio: 2 / 1;
-  --logo-x: 50%;
-  --logo-y: 50%;
-  --logo-w: 14%;
+  --logo-x: 52%;
+  --logo-y: 17%;
+  --logo-w: 16%;
 
   padding: 0;
   background: #f8fbff;
@@ -469,6 +472,8 @@ nav a.active { color: var(--brand); }
 .marcas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
 
 .marca-card {
+  color: inherit;
+  text-decoration: none;
   background: #fff;
   border-radius: var(--r);
   border: 1.5px solid var(--line);
@@ -487,13 +492,11 @@ nav a.active { color: var(--brand); }
   background: #f0f7ff;
   box-shadow: 0 16px 36px rgba(26, 124, 242, .2);
 }
-.marca-logo-text {
-  color: var(--c, var(--ink));
-  font-weight: 900;
-  font-size: 1.4rem;
-  letter-spacing: -.5px;
-  line-height: 1.1;
-  overflow-wrap: anywhere;
+.marca-logo {
+  display: block;
+  width: min(170px, 100%);
+  height: 46px;
+  object-fit: contain;
 }
 .marca-nome { font-weight: 800; font-size: 1rem; color: var(--ink); transition: color .25s; }
 .marca-card:hover .marca-nome { color: var(--brand); }
@@ -606,6 +609,7 @@ textarea { min-height: 120px; resize: vertical; }
   box-shadow: var(--sh);
 }
 .map iframe { display: block; width: 100%; height: 340px; border: 0; }
+.map iframe[hidden] { display: none; }
 .map .open {
   position: absolute;
   right: 12px;
@@ -634,10 +638,88 @@ footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; co
 footer a:hover { color: var(--brand2); }
 
 .fgrid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 32px; }
-.copy { border-top: 1px solid rgba(255, 255, 255, .15); margin-top: 34px; padding-top: 20px; font-size: .85rem; color: #a1c4fd; }
+.copy { border-top: 1px solid rgba(255, 255, 255, .15); margin-top: 34px; padding-top: 20px; font-size: .85rem; color: #a1c4fd; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.copy nav { display: flex; flex-wrap: wrap; gap: 18px; }
+.copy nav a { color: #d0e3ff; }
+.cookie-settings { padding: 0; border: 0; background: none; color: #d0e3ff; font: inherit; cursor: pointer; }
+.cookie-settings:hover { color: var(--brand2); }
+.map-cookie-placeholder { min-height: 450px; padding: 28px; display: grid; place-content: center; justify-items: center; gap: 12px; text-align: center; border: 1px solid var(--line); border-radius: var(--r); background: linear-gradient(135deg, #eef7ff, #dceeff); }
+.map-cookie-placeholder p { max-width: 500px; margin: 0; }
+.map-cookie-placeholder[hidden], .cookie-banner[hidden] { display: none !important; }
+.cookie-banner { position: fixed; z-index: 120; inset: auto 18px calc(18px + env(safe-area-inset-bottom, 0px)); width: min(760px, calc(100% - 36px)); margin-inline: auto; padding: 22px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 18px 50px rgba(15, 42, 68, .24); }
+.cookie-banner h2 { margin: 0 0 5px; font-size: 1.1rem; }
+.cookie-banner p { margin: 0; font-size: .9rem; }
+.cookie-banner a { color: var(--brand); text-decoration: underline; }
+.cookie-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; flex: none; }
+.cookie-actions button { min-height: 44px; padding: 10px 14px; border: 1px solid var(--brand); border-radius: 10px; background: #fff; color: var(--brand); font: inherit; font-weight: 800; cursor: pointer; }
+.cookie-actions .cookie-accept { background: var(--brand); color: #fff; }
 
-/* ==========================================================================
-   12. WHATSAPP FLUTUANTE
+/* Páginas legais */
+.legal-topbar { background: #fff; border-bottom: 1px solid var(--line); }
+.legal-topbar .wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.legal-brand img { display: block; width: 210px; height: 58px; object-fit: contain; }
+.legal-back { color: var(--brand); font-weight: 800; }
+.legal-main { min-height: calc(100vh - 210px); padding: 64px 0 80px; background: linear-gradient(180deg, #f1f8ff 0, #fff 360px); }
+.legal-article { max-width: 850px; padding: clamp(24px, 5vw, 54px); margin-inline: auto; background: #fff; border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--sh); }
+.legal-article .eyebrow { margin-top: 0; }
+.legal-article h1 { margin-bottom: 12px; }
+.legal-updated { color: var(--muted); font-size: .9rem; }
+.legal-article h2 { margin: 34px 0 12px; font-size: 1.35rem; }
+.legal-article p, .legal-article li { color: var(--muted); }
+.legal-article ul { padding-left: 22px; }
+.legal-article li + li { margin-top: 8px; }
+.legal-form { margin: 20px 0 12px; }
+.legal-form .btn { justify-self: start; cursor: pointer; border: 0; }
+.legal-form-note { margin: 0; font-size: .9rem; }
+.legal-callout { margin-top: 28px; padding: 20px 22px; border-left: 4px solid var(--brand); border-radius: 0 14px 14px 0; background: #f1f8ff; }
+.legal-footer { padding: 22px 0; background: #0b223b; color: #d0e3ff; }
+.legal-footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.legal-footer nav { display: flex; flex-wrap: wrap; gap: 18px; }
+.legal-footer a:hover { color: var(--brand2); }
+@media (max-width: 600px) {
+  .legal-topbar .wrap { min-height: 72px; }
+  .legal-brand img { width: 150px; height: 46px; }
+  .legal-main { padding: 36px 0 52px; }
+  .legal-footer .wrap { align-items: flex-start; flex-direction: column; }
+}
+.marca-card:focus-visible { border-color: var(--brand); background: #f0f7ff; }
+
+/* ========================================================================== 
+   12. AVALIAÇÕES GOOGLE
+   ========================================================================== */
+.reviews { padding: 76px 0; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #fff 0, #eef7ff 65%, #e5f3ff 100%); }
+.reviews-header { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+.reviews-header .eyebrow { margin-top: 0; }
+.reviews-header h2 { margin-bottom: 12px; }
+.reviews-header p { margin: 0; }
+.reviews-viewport { overflow: hidden; padding: 12px 4px 28px; }
+.reviews-track { display: flex; align-items: stretch; gap: 20px; transition: transform .65s cubic-bezier(.22, .68, 0, 1.05); }
+.review-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-height: 270px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid rgba(173, 208, 241, .8);
+  border-radius: 22px;
+  background: linear-gradient(160deg, #fff 55%, #f8fbff);
+  box-shadow: 0 12px 34px rgba(20, 77, 132, .1);
+  transition: box-shadow .25s, border-color .25s;
+}
+.review-card:hover { border-color: #8dc2f5; box-shadow: 0 18px 40px rgba(26, 124, 242, .16); }
+.review-author { display: flex; align-items: center; gap: 12px; margin: 0; }
+.review-author > span:last-child { display: grid; gap: 2px; }
+.review-author strong { color: var(--ink); font-size: .98rem; }
+.review-author small { color: var(--muted); font-size: .75rem; line-height: 1.35; }
+.review-avatar { width: 42px; height: 42px; flex: none; display: block; border-radius: 50%; object-fit: cover; background: linear-gradient(145deg, #1a7cf2, #35c8e8); }
+.review-rating { display: flex; align-items: center; gap: 9px; color: #f4ad00; font-size: 1.02rem; letter-spacing: 1px; }
+.review-rating time { color: #71869b; font-size: .76rem; letter-spacing: 0; }
+.review-card p { margin: 0; color: #40566c; font-size: .9rem; line-height: 1.65; }
+.review-card p b { display: inline-block; margin-bottom: 5px; color: var(--ink); }
+
+/* ========================================================================== 
+   13. WHATSAPP FLUTUANTE
    ========================================================================== */
 .fab {
   position: fixed;
@@ -679,12 +761,12 @@ footer a:hover { color: var(--brand2); }
    14. RESPONSIVO
    ========================================================================== */
 @media (max-width: 1040px) {
-  .logo img { height: 42px; }
+  .logo img { height: 48px; }
 
   /* o nav continua dentro do header-center, só sai do fluxo */
   .header-center { flex: 0 0 0; }
 
-  nav {
+  #menu {
     position: absolute;
     left: 0;
     right: 0;
@@ -695,10 +777,10 @@ footer a:hover { color: var(--brand2); }
     padding: 10px 20px 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
   }
-  nav.open { display: block; }
-  nav ul { flex-direction: column; gap: 0; }
-  nav li a { display: block; padding: 14px 4px; border-bottom: 1px solid #e1edfc; }
-  nav a::after { display: none; }
+  #menu.open { display: block; }
+  #menu ul { flex-direction: column; gap: 0; }
+  #menu li a { display: block; padding: 14px 4px; border-bottom: 1px solid #e1edfc; }
+  #menu a::after { display: none; }
   .burger { display: flex; }
 }
 
@@ -728,19 +810,45 @@ footer a:hover { color: var(--brand2); }
   .stats .grid { grid-template-columns: repeat(2, 1fr); }
   .stat:nth-child(2) { border-right: 0; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .review-card { flex-basis: calc((100% - 20px) / 2); }
 }
 
 @media (max-width: 500px) {
   section { padding: 40px 0; }
   .hero { padding: 0; }
   .wa-header-btn span { display: none; }
+  .header-left .logo img { width: 130px; height: 48px; object-fit: contain; }
+  .header-right { gap: 6px; }
+  .insta-icon, .facebook-icon { width: 32px; height: 32px; }
+  .insta-icon svg, .facebook-icon svg { width: 18px; height: 18px; }
+  .wa-header-btn svg { width: 22px; height: 22px; }
+  .burger { width: 40px; height: 40px; }
   .diff-grid-4, .fgrid { grid-template-columns: 1fr; }
   .marcas-grid { gap: 12px; }
   .marca-card { padding: 20px 10px; }
-  .marca-logo-text { font-size: 1.15rem; }
+  .marca-logo { width: min(150px, 100%); height: 42px; }
   .map iframe { height: 300px; }
   .service-card, .about-main-box, form { padding: 22px; }
   .head-diff { padding: 20px; }
+  .reviews { padding: 52px 0; }
+  .review-card { flex-basis: 86%; min-height: 250px; padding: 21px 19px; }
+}
+
+@media (max-width: 360px) {
+  .header-left .logo img { width: 110px; height: 42px; }
+  .header-right { gap: 4px; }
+  .insta-icon, .facebook-icon { width: 28px; height: 28px; }
+  .wa-header-btn svg { width: 20px; height: 20px; }
+  .burger { width: 38px; height: 38px; }
+}
+
+@media (max-width: 600px) {
+  .copy { flex-direction: column; align-items: flex-start; }
+  .copy nav { gap: 12px; }
+  .map-cookie-placeholder { min-height: 300px; padding: 20px; }
+  .cookie-banner { inset-inline: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); width: auto; padding: 18px; align-items: stretch; flex-direction: column; gap: 14px; }
+  .cookie-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .cookie-actions button { padding-inline: 8px; font-size: .9rem; }
 }
 
 /* ==========================================================================

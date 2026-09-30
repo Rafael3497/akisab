@@ -5,6 +5,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ------------------------------------------------------------------
+     0. Preferências de cookies e carregamento do Google Maps
+     ------------------------------------------------------------------ */
+  const cookieBanner = document.getElementById("cookie-banner");
+  const consentCookieName = "akisab_cookie_consent";
+  const readCookieConsent = () => {
+    const item = document.cookie.split("; ").find((cookie) => cookie.startsWith(`${consentCookieName}=`));
+    return item ? item.split("=").slice(1).join("=") : null;
+  };
+  const loadGoogleMaps = () => {
+    document.querySelectorAll("iframe[data-cookie-map]").forEach((frame) => {
+      frame.src = frame.dataset.cookieMap;
+      frame.hidden = false;
+      const placeholder = frame.parentElement.querySelector("[data-map-placeholder]");
+      if (placeholder) placeholder.hidden = true;
+    });
+  };
+  const unloadGoogleMaps = () => {
+    document.querySelectorAll("iframe[data-cookie-map]").forEach((frame) => {
+      frame.removeAttribute("src");
+      frame.hidden = true;
+      const placeholder = frame.parentElement.querySelector("[data-map-placeholder]");
+      if (placeholder) placeholder.hidden = false;
+    });
+  };
+  const saveCookieConsent = (choice) => {
+    const secure = location.protocol === "https:" ? "; Secure" : "";
+    document.cookie = `${consentCookieName}=${choice}; Max-Age=15552000; Path=/; SameSite=Lax${secure}`;
+    if (cookieBanner) cookieBanner.hidden = true;
+    if (choice === "accepted") loadGoogleMaps();
+    else unloadGoogleMaps();
+  };
+  const cookieConsent = readCookieConsent();
+  if (cookieConsent === "accepted") loadGoogleMaps();
+  else if (cookieConsent !== "rejected" && cookieBanner) cookieBanner.hidden = false;
+
+  document.getElementById("cookie-accept")?.addEventListener("click", () => saveCookieConsent("accepted"));
+  document.getElementById("cookie-reject")?.addEventListener("click", () => saveCookieConsent("rejected"));
+  document.getElementById("cookie-settings")?.addEventListener("click", () => {
+    if (cookieBanner) cookieBanner.hidden = false;
+  });
+  document.querySelector("[data-consent-load-map]")?.addEventListener("click", () => saveCookieConsent("accepted"));
+
+  /* ------------------------------------------------------------------
      1. Menu hambúrguer (mobile)
      ------------------------------------------------------------------ */
   const setMenu = (open) => {
@@ -131,6 +174,43 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ------------------------------------------------------------------
      5. Formulário -> WhatsApp
      ------------------------------------------------------------------ */
+  const reviewsCarousel = document.querySelector("[data-reviews-carousel]");
+  if (reviewsCarousel) {
+    const track = reviewsCarousel.querySelector("[data-reviews-track]");
+    const originalCards = [...track.children];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let index = 0;
+    let timer;
+
+    originalCards.slice(0, 2).forEach((card) => track.append(card.cloneNode(true)));
+    const cardStep = () => originalCards[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).gap);
+    const move = () => { track.style.transform = `translateX(${-index * cardStep()}px)`; };
+    const advance = () => {
+      if (index >= originalCards.length) {
+        track.style.transition = "none";
+        index = 0;
+        move();
+        requestAnimationFrame(() => requestAnimationFrame(() => { track.style.transition = ""; }));
+      } else {
+        index += 1;
+        move();
+      }
+    };
+    const start = () => {
+      window.clearInterval(timer);
+      if (!reducedMotion.matches) timer = window.setInterval(advance, 4200);
+    };
+    const pause = () => window.clearInterval(timer);
+
+    reviewsCarousel.addEventListener("mouseenter", pause);
+    reviewsCarousel.addEventListener("mouseleave", start);
+    reviewsCarousel.addEventListener("focusin", pause);
+    reviewsCarousel.addEventListener("focusout", start);
+    reducedMotion.addEventListener("change", start);
+    window.addEventListener("resize", move);
+    start();
+  }
+
   const form = document.getElementById("form");
   const formMsg = document.getElementById("form-msg");
 

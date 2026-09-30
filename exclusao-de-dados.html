@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a7cf2">
+  <meta name="description" content="Veja como solicitar à Aki Sab Refrigeração a exclusão de dados pessoais.">
+  <title>Exclusão de dados | Aki Sab Refrigeração</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="legal-topbar"><div class="wrap"><a class="legal-brand" href="index.html" aria-label="Aki Sab Refrigeração — página inicial"><img src="assents/logo-topo.png" alt="Aki Sab Refrigeração"></a><a class="legal-back" href="index.html">Voltar ao site</a></div></header>
+  <main class="legal-main"><div class="wrap"><article class="legal-article">
+    <span class="eyebrow">Seus dados</span>
+    <h1>Exclusão de dados</h1>
+    <p class="legal-updated">Última atualização: 30 de setembro de 2026</p>
+    <p>Você pode pedir à Aki Sab Refrigeração a exclusão dos seus dados pessoais, conforme as hipóteses e limites previstos na legislação aplicável.</p>
+    <h2>Como fazer o pedido</h2>
+    <p>Envie um e-mail para <a href="mailto:akisabrefrigeracao@gmail.com?subject=Pedido%20de%20exclus%C3%A3o%20de%20dados">akisabrefrigeracao@gmail.com</a> com o assunto “Pedido de exclusão de dados” ou entre em contato pelo <a href="https://api.whatsapp.com/send?phone=5585991425425&amp;text=Ol%C3%A1%2C%20quero%20solicitar%20a%20exclus%C3%A3o%20dos%20meus%20dados." target="_blank" rel="noopener">WhatsApp (85) 99142-5425</a>.</p>
+    <p>Informe seu nome e o telefone ou e-mail que usou para falar conosco e descreva o pedido. Não envie senhas, dados bancários nem documentos completos. Se precisarmos confirmar que o pedido é seu, solicitaremos apenas as informações necessárias para essa verificação.</p>
+    <h2>Solicite a exclusão pelo formulário</h2>
+    <p>Preencha os dados abaixo para preparar uma solicitação por e-mail. Não informe senhas, dados bancários nem envie documentos completos.</p>
+    <form class="legal-form" id="deletion-request">
+      <label for="request-name">Seu nome</label>
+      <input id="request-name" name="name" autocomplete="name" required>
+      <label for="request-contact">E-mail ou telefone usado para falar conosco</label>
+      <input id="request-contact" name="contact" autocomplete="off" required>
+      <label for="request-details">Quais dados deseja excluir ou localizar?</label>
+      <textarea id="request-details" name="details" rows="5" required></textarea>
+      <button class="btn btn-blue" type="submit">Preparar solicitação por e-mail</button>
+      <p class="legal-form-note">Seu aplicativo de e-mail será aberto com a mensagem preenchida. Revise e envie para concluir o pedido.</p>
+    </form>
+    <script>
+      document.getElementById("deletion-request").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = new FormData(this);
+        const subject = "Pedido de exclusão de dados pessoais";
+        const body = [
+          "Pedido de exclusão de dados pessoais",
+          "",
+          `Nome: ${data.get("name")}`,
+          `E-mail ou telefone usado no atendimento: ${data.get("contact")}`,
+          "",
+          `Dados/solicitação: ${data.get("details")}`
+        ].join("\n");
+        window.location.href = `mailto:akisabrefrigeracao@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    </script>
+    <h2>O que acontece depois</h2>
+    <p>Vamos localizar os dados relacionados ao pedido, avaliar a solicitação e responder pelo canal de contato informado. Quando a exclusão for cabível, os dados serão eliminados ou, quando aplicável, anonimizados. Também podemos informar se algum dado precisa ser mantido por obrigação legal, para exercício regular de direitos ou por outra hipótese permitida pela legislação; nesse caso, ele ficará restrito a essa finalidade pelo período necessário.</p>
+    <p>O pedido não apaga mensagens e informações mantidas diretamente por serviços de terceiros, como WhatsApp, Google ou seu provedor de e-mail. Para esses dados, também pode ser necessário usar os controles oferecidos pelo próprio serviço.</p>
+    <h2>Outros direitos</h2>
+    <p>Você também pode pedir confirmação de tratamento, acesso, correção e informações sobre o uso dos seus dados. Veja mais na <a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a> e na <a href="https://www.gov.br/anpd/pt-br/assuntos/titular-de-dados-1/direito-dos-titulares" target="_blank" rel="noopener">orientação da ANPD sobre direitos dos titulares</a>.</p>
+  </article></div></main>
+  <footer class="legal-footer"><div class="wrap"><span>© 2026 Aki Sab Refrigeração</span><nav aria-label="Páginas legais"><a href="termos-de-uso.html" target="_blank" rel="noopener">Termo de Uso</a><a href="politica-de-privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a><a href="exclusao-de-dados.html" target="_blank" rel="noopener">Exclusão de dados</a></nav></div></footer>
+</body>
+</html>
